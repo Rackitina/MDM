@@ -1,0 +1,476 @@
+
+/* =====================================
+   СТРАНИЦА АВТОРИЗАЦИИ
+===================================== */
+
+.login-page {
+    margin: 0;
+    min-height: 100vh;
+    font-family: inherit;
+    color: #17161d;
+    background: #fff;
+}
+
+.login-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 100vh;
+    width: 100%;
+}
+
+/* ЛЕВАЯ ПАНЕЛЬ */
+
+.login-promo {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    box-sizing: border-box;
+    padding: 48px 6.6%;
+
+    color: #fff;
+
+    background-color: #17161d;
+    background-image: repeating-linear-gradient(
+        135deg,
+        #24232b 0px,
+        #24232b 9px,
+        #17161d 9px,
+        #17161d 20px
+    );
+}
+
+.login-logo {
+    width: fit-content;
+    color: #fff;
+    font-size: 25px;
+    font-weight: 800;
+    letter-spacing: -.5px;
+    text-decoration: none;
+}
+
+.login-promo-content {
+    max-width: 680px;
+    margin: auto 0;
+}
+
+.login-promo-content h1 {
+    margin: 0 0 18px;
+
+    font-size: clamp(32px, 3.1vw, 46px);
+    line-height: 1.08;
+    letter-spacing: -1.5px;
+    font-weight: 800;
+}
+
+.login-promo-content p {
+    max-width: 570px;
+    margin: 0;
+
+    color: #c5c1d3;
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+.login-promo-footer {
+    color: #aaa6b8;
+    font-size: 13px;
+}
+
+/* ПРАВАЯ ПАНЕЛЬ */
+
+.login-form-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    box-sizing: border-box;
+    padding: 50px;
+    background: #fff;
+}
+
+.login-form {
+    width: 100%;
+    max-width: 448px;
+}
+
+.login-form h2 {
+    margin: 0 0 23px;
+
+    font-size: 36px;
+    font-weight: 800;
+    letter-spacing: -.8px;
+}
+
+/* ПОЛЯ */
+
+.login-field {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 23px;
+}
+
+.login-field label {
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.login-field input {
+    width: 100%;
+    height: 56px;
+    box-sizing: border-box;
+
+    padding: 0 17px;
+
+    border: 1px solid #dcd9e8;
+    border-radius: 16px;
+
+    outline: none;
+    background: #fff;
+
+    color: #17161d;
+    font: inherit;
+    font-size: 15px;
+
+    transition: border-color .2s, box-shadow .2s;
+}
+
+.login-field input::placeholder {
+    color: #aaa6b5;
+}
+
+.login-field input:hover {
+    border-color: #aaa4c5;
+}
+
+.login-field input:focus {
+    border-color: #4935df;
+    box-shadow: 0 0 0 3px rgba(73,53,223,.10);
+}
+
+.login-field input.invalid {
+    border-color: #dc4545;
+}
+
+.field-error {
+    min-height: 0;
+    margin-top: 5px;
+    color: #dc4545;
+    font-size: 12px;
+}
+
+/* ЗАПОМНИТЬ И ЗАБЫЛИ ПАРОЛЬ */
+
+.login-options {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+
+    margin: 10px 0 34px;
+}
+
+.remember-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.remember-label input {
+    width: 19px;
+    height: 19px;
+    margin: 0;
+
+    accent-color: #4935df;
+    cursor: pointer;
+}
+
+.login-options a,
+.login-register a {
+    color: #4935df;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.login-options a {
+    font-size: 14px;
+}
+
+.login-options a:hover,
+.login-register a:hover {
+    text-decoration: underline;
+}
+
+/* КНОПКА ВХОДА */
+
+.login-submit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 60px;
+
+    border: none;
+    border-radius: 35px;
+
+    background: #4935df;
+    color: #fff;
+
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: background .2s ease,
+                transform .15s ease,
+                box-shadow .2s ease;
+}
+
+.login-submit:hover {
+    background: #3925c5;
+    box-shadow: 0 7px 18px rgba(73,53,223,.18);
+}
+
+.login-submit:active {
+    transform: scale(.98);
+}
+
+.login-submit:disabled {
+    opacity: .65;
+    cursor: wait;
+}
+
+/* РЕГИСТРАЦИЯ */
+
+.login-register {
+    margin-top: 24px;
+    text-align: center;
+
+    color: #777487;
+    font-size: 14px;
+}
+
+/* ИНФОРМАЦИОННЫЙ БЛОК */
+
+.login-note {
+    margin-top: 22px;
+    padding: 17px;
+
+    border-radius: 18px;
+    background: #f5f4f8;
+
+    color: #777487;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+/* СООБЩЕНИЯ */
+
+.login-message {
+    margin-top: 15px;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.login-message.success {
+    color: #16845d;
+}
+
+.login-message.error {
+    color: #dc4545;
+}
+
+/* АДАПТИВНОСТЬ */
+
+@media (max-width: 900px) {
+
+    .login-promo {
+        padding: 35px;
+    }
+
+    .login-form-section {
+        padding: 35px;
+    }
+
+    .login-promo-content h1 {
+        font-size: 34px;
+    }
+
+    .login-form h2 {
+        font-size: 31px;
+    }
+}
+
+@media (max-width: 650px) {
+
+    .login-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .login-promo {
+        min-height: 270px;
+        padding: 25px;
+    }
+
+    .login-logo {
+        font-size: 21px;
+    }
+
+    .login-promo-content {
+        margin: 35px 0;
+    }
+
+    .login-promo-content h1 {
+        font-size: 29px;
+    }
+
+    .login-promo-content p {
+        font-size: 14px;
+    }
+
+    .login-promo-footer {
+        font-size: 11px;
+    }
+
+    .login-form-section {
+        padding: 45px 24px;
+    }
+
+    .login-form {
+        max-width: 480px;
+    }
+
+    .login-form h2 {
+        font-size: 30px;
+    }
+}
+
+@media (max-width: 380px) {
+
+    .login-options {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .login-field input {
+        height: 52px;
+    }
+}
+
+
+/* =====================================
+   ЕДИНАЯ ТИПОГРАФИКА С ГЛАВНОЙ
+===================================== */
+
+.login-page {
+    font-family: "Manrope", sans-serif;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Логотип */
+
+.login-logo {
+    font-size: 25px;
+    font-weight: 800;
+    letter-spacing: -0.7px;
+}
+
+/* Главный заголовок слева */
+
+.login-promo-content h1 {
+    font-size: clamp(38px, 3.2vw, 48px);
+    line-height: 1.08;
+    font-weight: 800;
+    letter-spacing: -1.5px;
+}
+
+/* Описание слева */
+
+.login-promo-content p {
+    font-size: 17px;
+    line-height: 1.65;
+    font-weight: 400;
+}
+
+/* Заголовок формы */
+
+.login-form h2 {
+    font-size: 38px;
+    line-height: 1.2;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+/* Подписи полей */
+
+.login-field label {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+/* Поля ввода */
+
+.login-field input {
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+/* Запомнить меня и забытый пароль */
+
+.remember-label,
+.login-options a {
+    font-size: 15px;
+    font-weight: 500;
+}
+
+/* Кнопка */
+
+.login-submit {
+    font-family: inherit;
+    font-size: 17px;
+    font-weight: 700;
+}
+
+/* Регистрация */
+
+.login-register {
+    font-size: 15px;
+}
+
+/* Информационный блок */
+
+.login-note {
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+/* Нижняя подпись */
+
+.login-promo-footer {
+    font-size: 14px;
+}
+
+/* Адаптивность */
+
+@media (max-width: 650px) {
+    .login-promo-content h1 {
+        font-size: 32px;
+    }
+
+    .login-form h2 {
+        font-size: 32px;
+    }
+
+    .login-promo-content p {
+        font-size: 15px;
+    }
+}

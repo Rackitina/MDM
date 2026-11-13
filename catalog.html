@@ -1,0 +1,453 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Каталог костюмов — Гардероб</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="catalog.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<!-- ШАПКА -->
+<header class="header">
+    <div class="header-inner">
+        <a href="index.html" class="logo">ГАРДЕРОБ</a>
+
+        <nav class="navigation">
+            <a href="catalog.html" class="active-link">Каталог</a>
+            <a href="designers.html">Дизайнеры</a>
+            <a href="index.html#how">Как это работает</a>
+            <a href="index.html#terms">Условия аренды</a>
+        </nav>
+
+        <a href="login.html" class="login-btn header-login">Войти</a>
+   
+</div>
+</header>
+
+
+<main class="catalog-page">
+
+    <!-- ЗАГОЛОВОК И ПОИСК -->
+    <section class="catalog-top">
+
+        <div class="breadcrumbs">
+            <a href="index.html">Главная</a>
+            <span>/</span>
+            <span>Каталог</span>
+        </div>
+
+        <div class="catalog-title-row">
+            <h1>Каталог костюмов</h1>
+
+            <div class="catalog-controls">
+                <input
+                    type="search"
+                    id="searchInput"
+                    placeholder="Платье, пальто, дизайнер..."
+                >
+
+                <label for="sortSelect">Сортировка</label>
+
+                <select id="sortSelect">
+                    <option value="new">Сначала новые</option>
+                    <option value="price-asc">Сначала дешевле</option>
+                    <option value="price-desc">Сначала дороже</option>
+                    <option value="name">По названию</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- АКТИВНЫЕ ФИЛЬТРЫ -->
+        <div class="active-filters" id="activeFilters">
+            <button class="filter-chip" data-filter="evening">
+                Вечерний <span>×</span>
+            </button>
+
+            <button class="filter-chip" data-filter="size">
+                Размер 42–46 <span>×</span>
+            </button>
+
+            <button class="filter-chip" data-filter="dates">
+                Свободен на 12–14 ноября <span>×</span>
+            </button>
+
+            <button class="reset-filters" id="resetFilters">
+                Сбросить всё
+            </button>
+        </div>
+
+    </section>
+
+
+    <!-- ОСНОВНАЯ ЧАСТЬ -->
+    <section class="catalog-layout">
+
+        <!-- БОКОВЫЕ ФИЛЬТРЫ -->
+        <aside class="filters-sidebar">
+
+            <div class="filter-group">
+                <h3>Тип</h3>
+
+                <label class="check-label">
+                    <input type="checkbox" name="type" value="everyday">
+                    <span>Повседневный</span>
+                </label>
+
+                <label class="check-label">
+                    <input type="checkbox" name="type" value="evening">
+                    <span>Вечерний</span>
+                </label>
+
+                <label class="check-label">
+                    <input type="checkbox" name="type" value="stage">
+                    <span>Сценический</span>
+                </label>
+
+                <label class="check-label">
+                    <input type="checkbox" name="type" value="art">
+                    <span>Подиумный арт-костюм</span>
+                </label>
+            </div>
+
+
+            <div class="filter-group">
+                <h3>Размер</h3>
+
+                <div class="size-grid">
+                    <button class="size-btn" data-size="40">40</button>
+                    <button class="size-btn" data-size="42">42</button>
+                    <button class="size-btn" data-size="44">44</button>
+                    <button class="size-btn" data-size="46">46</button>
+                    <button class="size-btn" data-size="48">48</button>
+                    <button class="size-btn" data-size="50">50</button>
+                    <button class="size-btn" data-size="52">52</button>
+                    <button class="size-btn" data-size="OS">OS</button>
+                </div>
+            </div>
+
+
+            <div class="filter-group">
+                <h3>Дизайнер</h3>
+
+                <label class="check-label">
+                    <input type="checkbox" name="designer" value="Анна Лебедева">
+                    <span>Анна Лебедева</span>
+                </label>
+
+                <label class="check-label">
+                    <input type="checkbox" name="designer" value="Илья Ким">
+                    <span>Илья Ким</span>
+                </label>
+
+                <label class="check-label">
+                    <input type="checkbox" name="designer" value="Мария Орлова">
+                    <span>Мария Орлова</span>
+                </label>
+
+                <label class="check-label">
+                    <input type="checkbox" name="designer" value="Дарья Соколова">
+                    <span>Дарья Соколова</span>
+                </label>
+
+                <label class="check-label">
+                    <input type="checkbox" name="designer" value="Ева Миронова">
+                    <span>Ева Миронова</span>
+                </label>
+            </div>
+
+
+            <div class="filter-group">
+                <h3>Материал и цвет</h3>
+
+                <label class="select-label" for="materialSelect">
+                    Материал
+                </label>
+
+                <select id="materialSelect">
+                    <option value="">Любой</option>
+                    <option value="шёлк">Шёлк</option>
+                    <option value="бархат">Бархат</option>
+                    <option value="лён">Лён</option>
+                    <option value="креп">Креп</option>
+                    <option value="шерсть">Шерсть</option>
+                </select>
+
+                <label class="select-label" for="colorSelect">
+                    Цвет
+                </label>
+
+                <select id="colorSelect">
+                    <option value="">Любой</option>
+                    <option value="фиолетовый">Фиолетовый</option>
+                    <option value="бежевый">Бежевый</option>
+                    <option value="розовый">Розовый</option>
+                    <option value="серый">Серый</option>
+                    <option value="зелёный">Зелёный</option>
+                </select>
+            </div>
+
+
+            <div class="filter-group">
+                <h3>Даты аренды</h3>
+
+                <div class="date-fields">
+                    <label>
+                        <span>С</span>
+                        <input type="date" id="dateFrom" value="2026-11-12">
+                    </label>
+
+                    <label>
+                        <span>По</span>
+                        <input type="date" id="dateTo" value="2026-11-14">
+                    </label>
+                </div>
+            </div>
+
+
+            <div class="filter-group">
+                <h3>Состояние</h3>
+
+                <label class="check-label">
+                    <input type="checkbox" name="condition" value="Отличное">
+                    <span>Отличное</span>
+                </label>
+
+                <label class="check-label">
+                    <input type="checkbox" name="condition" value="Хорошее">
+                    <span>Хорошее</span>
+                </label>
+            </div>
+
+        </aside>
+
+
+        <!-- КАРТОЧКИ КОСТЮМОВ -->
+        <div class="catalog-content">
+
+            <div class="results-heading">
+                <span id="resultsCount">Найдено: 8 костюмов</span>
+            </div>
+
+            <div class="catalog-products" id="productsGrid">
+
+                <!-- КАРТОЧКА 1 -->
+                <article class="catalog-product"
+                    data-product-id="sumерки"
+                    data-name="Платье Сумерки"
+                    data-type="evening"
+                    data-size="44"
+                    data-designer="Анна Лебедева"
+                    data-material="шёлк"
+                    data-color="фиолетовый"
+                    data-price="2500"
+                    data-condition="Отличное"
+                    data-available="true">
+
+                    <div class="catalog-image image-purple">
+                        <span class="product-type">Вечерний</span>
+                        <span class="availability available">Свободен</span>
+                    </div>
+
+                    <h3>Платье «Сумерки»</h3>
+                    <p>Анна Лебедева · р. 44 · шёлк</p>
+                    <strong>2 500 ₽ / сутки</strong>
+                </article>
+
+
+                <!-- КАРТОЧКА 2 -->
+                <article class="catalog-product"
+                    data-product-id="trapeziya"
+                    data-name="Платье трапеция 60-е"
+                    data-type="evening"
+                    data-size="42"
+                    data-designer="Анна Лебедева"
+                    data-material="креп"
+                    data-color="бежевый"
+                    data-price="2500"
+                    data-condition="Отличное"
+                    data-available="true">
+
+                    <div class="catalog-image image-beige">
+                        <span class="product-type">Вечерний</span>
+                        <span class="availability available">Свободен</span>
+                    </div>
+
+                    <h3>Платье-трапеция «60-е»</h3>
+                    <p>Анна Лебедева · р. 42 · креп</p>
+                    <strong>2 500 ₽ / сутки</strong>
+                </article>
+
+
+                <!-- КАРТОЧКА 3 -->
+                <article class="catalog-product"
+                    data-product-id="barokko"
+                    data-name="Корсетное платье Барокко"
+                    data-type="art"
+                    data-size="42"
+                    data-designer="Мария Орлова"
+                    data-material="бархат"
+                    data-color="розовый"
+                    data-price="4000"
+                    data-condition="Отличное"
+                    data-available="false">
+
+                    <div class="catalog-image image-pink">
+                        <span class="product-type">Арт-костюм</span>
+                        <span class="availability unavailable">В аренде до 10.11</span>
+                    </div>
+
+                    <h3>Корсетное платье «Барокко»</h3>
+                    <p>Мария Орлова · р. 42 · жаккард</p>
+                    <strong>4 000 ₽ / сутки</strong>
+                </article>
+
+
+                <!-- КАРТОЧКА 4 -->
+                <article class="catalog-product"
+                    data-product-id="grafika"
+                    data-name="Платье-футляр Графика"
+                    data-type="evening"
+                    data-size="46"
+                    data-designer="Дарья Соколова"
+                    data-material="шерсть"
+                    data-color="серый"
+                    data-price="2500"
+                    data-condition="Хорошее"
+                    data-available="true">
+
+                    <div class="catalog-image image-gray">
+                        <span class="product-type">Вечерний</span>
+                        <span class="availability available">Свободен</span>
+                    </div>
+
+                    <h3>Платье-футляр «Графика»</h3>
+                    <p>Дарья Соколова · р. 46 · шерсть</p>
+                    <strong>2 500 ₽ / сутки</strong>
+                </article>
+
+
+                <!-- КАРТОЧКА 5 -->
+                <article class="catalog-product"
+                    data-product-id="metall"
+                    data-name="Комбинезон Металл"
+                    data-type="art"
+                    data-size="44"
+                    data-designer="Ева Миронова"
+                    data-material="лён"
+                    data-color="зелёный"
+                    data-price="4000"
+                    data-condition="Отличное"
+                    data-available="true">
+
+                    <div class="catalog-image image-olive">
+                        <span class="product-type">Арт-костюм</span>
+                        <span class="availability available">Свободен</span>
+                    </div>
+
+                    <h3>Комбинезон «Металл»</h3>
+                    <p>Ева Миронова · р. 44 · лён</p>
+                    <strong>4 000 ₽ / сутки</strong>
+                </article>
+
+
+                <!-- КАРТОЧКА 6 -->
+                <article class="catalog-product"
+                    data-product-id="sad"
+                    data-name="Платье-кимоно Сад"
+                    data-type="stage"
+                    data-size="44"
+                    data-designer="Мария Орлова"
+                    data-material="шёлк"
+                    data-color="зелёный"
+                    data-price="3000"
+                    data-condition="Хорошее"
+                    data-available="false">
+
+                    <div class="catalog-image image-green">
+                        <span class="product-type">Сценический</span>
+                        <span class="availability unavailable">В аренде до 10.11</span>
+                    </div>
+
+                    <h3>Платье-кимоно «Сад»</h3>
+                    <p>Мария Орлова · р. 44 · шёлк</p>
+                    <strong>3 000 ₽ / сутки</strong>
+                </article>
+
+
+                <!-- КАРТОЧКА 7 -->
+                <article class="catalog-product"
+                    data-product-id="nuar"
+                    data-name="Платье Нуар"
+                    data-type="evening"
+                    data-size="46"
+                    data-designer="Илья Ким"
+                    data-material="бархат"
+                    data-color="фиолетовый"
+                    data-price="2500"
+                    data-condition="Отличное"
+                    data-available="true">
+
+                    <div class="catalog-image image-lilac">
+                        <span class="product-type">Вечерний</span>
+                        <span class="availability available">Свободен</span>
+                    </div>
+
+                    <h3>Платье «Нуар»</h3>
+                    <p>Илья Ким · р. 46 · бархат</p>
+                    <strong>2 500 ₽ / сутки</strong>
+                </article>
+
+
+                <!-- КАРТОЧКА 8 -->
+                <article class="catalog-product"
+                    data-product-id="studiya"
+                    data-name="Платье-рубашка Студия"
+                    data-type="everyday"
+                    data-size="42"
+                    data-designer="Дарья Соколова"
+                    data-material="лён"
+                    data-color="бежевый"
+                    data-price="1500"
+                    data-condition="Отличное"
+                    data-available="true">
+
+                    <div class="catalog-image image-sand">
+                        <span class="product-type">Повседневный</span>
+                        <span class="availability available">Свободен</span>
+                    </div>
+
+                    <h3>Платье-рубашка «Студия»</h3>
+                    <p>Дарья Соколова · р. 42 · лён</p>
+                    <strong>1 500 ₽ / сутки</strong>
+                </article>
+
+            </div>
+
+
+            <!-- ПАГИНАЦИЯ -->
+            <div class="pagination" id="pagination">
+                <button class="page-btn active" data-page="1">1</button>
+                <button class="page-btn" data-page="2">2</button>
+                <button class="page-btn" data-page="3">3</button>
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<script src="catalog.js"></script>
+
+</body>
+</html>

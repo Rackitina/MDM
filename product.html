@@ -1,0 +1,385 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Карточка товара — Гардероб</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="product.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<header class="header">
+    <div class="header-inner">
+
+        <a href="index.html" class="logo">ГАРДЕРОБ</a>
+
+        <nav class="navigation">
+            <a href="catalog.html" class="active-link">Каталог</a>
+            <a href="designers.html">Дизайнеры</a>
+            <a href="index.html#how">Как это работает</a>
+            <a href="index.html#terms">Условия аренды</a>
+        </nav>
+
+        <a href="login.html" class="login-btn header-login">Войти</a>
+
+    </div>
+</header>
+
+
+<main class="product-page">
+
+    <!-- ХЛЕБНЫЕ КРОШКИ -->
+
+    <div class="product-breadcrumbs">
+        <a href="index.html">Главная</a>
+        <span>/</span>
+        <a href="catalog.html">Каталог</a>
+        <span>/</span>
+        <span id="breadcrumbName">Товар</span>
+    </div>
+
+
+    <!-- ОСНОВНОЙ БЛОК -->
+
+    <section class="product-main">
+
+        <!-- ГАЛЕРЕЯ -->
+
+        <div class="product-gallery">
+            <div class="main-photo" id="mainPhoto">
+
+                <button class="gallery-arrow gallery-prev"
+                        id="galleryPrev"
+                        aria-label="Предыдущая фотография">
+                    <span class="arrow-icon"></span>
+                </button>
+
+                <button class="gallery-arrow gallery-next"
+                        id="galleryNext"
+                        aria-label="Следующая фотография">
+                    <span class="arrow-icon"></span>
+                </button>
+
+                <span class="photo-counter" id="photoCounter">
+                    1 / 4
+                </span>
+
+                <span class="photo-caption" id="photoCaption">
+                    Фото: общий вид спереди
+                </span>
+
+            </div>
+
+            <div class="photo-thumbnails" id="photoThumbnails">
+
+                <button class="thumbnail active" data-photo="0">
+                    <span></span>
+                </button>
+
+                <button class="thumbnail" data-photo="1">
+                    <span></span>
+                </button>
+
+                <button class="thumbnail" data-photo="2">
+                    <span></span>
+                </button>
+
+                <button class="thumbnail more-photos" data-photo="3">
+                    +3 фото
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- ИНФОРМАЦИЯ О ТОВАРЕ -->
+
+        <div class="product-information">
+
+            <div class="product-badges">
+
+                <span class="product-badge type-badge" id="productType">
+                    Вечерний
+                </span>
+
+                <span class="product-badge status-badge" id="productStatus">
+                    Свободен
+                </span>
+
+                <span class="product-badge inventory-badge" id="productInventory">
+                    Инв. № ГК-0124
+                </span>
+
+            </div>
+
+
+            <h1 id="productName">Платье «Сумерки»</h1>
+
+
+            <!-- ДИЗАЙНЕР -->
+
+            <div class="designer-info">
+
+                <div class="designer-avatar"></div>
+
+                <div>
+                    <strong id="designerName">Анна Лебедева</strong>
+
+                    <p id="designerDescription">
+                        Дизайнер · коллекция «Вечер», 2026
+                    </p>
+                </div>
+
+            </div>
+
+
+            <!-- КАЛЬКУЛЯТОР АРЕНДЫ -->
+
+            <div class="rental-card">
+
+                <h3>Срок аренды</h3>
+
+                <div class="rental-options">
+
+                    <button class="rental-option" data-days="1">
+                        <strong>1 сутки</strong>
+                        <span id="price1">2 500 ₽</span>
+                    </button>
+
+                    <button class="rental-option selected" data-days="2">
+                        <strong>2 суток</strong>
+                        <span id="price2">5 000 ₽</span>
+                    </button>
+
+                    <button class="rental-option" data-days="3">
+                        <strong>3 суток</strong>
+                        <span id="price3">7 500 ₽</span>
+                    </button>
+
+                    <button class="rental-option" data-days="7">
+                        <strong>Неделя</strong>
+                        <span id="price7">12 500 ₽</span>
+                    </button>
+
+                </div>
+
+
+                <!-- ДАТЫ -->
+
+                <div class="rental-dates">
+
+                    <label>
+                        <span>Получение</span>
+                        <input type="date" id="rentalStart">
+                    </label>
+
+                    <label>
+                        <span>Возврат</span>
+                        <input type="date" id="rentalEnd">
+                    </label>
+
+                </div>
+
+
+                <!-- РАСЧЁТ -->
+
+                <div class="price-details">
+
+                    <div class="price-row">
+                        <span id="rentalDescription">
+                            Аренда · 2 суток
+                        </span>
+
+                        <strong id="rentalTotal">
+                            5 000 ₽
+                        </strong>
+                    </div>
+
+                    <div class="price-row">
+                        <span id="depositDescription">
+                            Залог (50% от оценки 40 000 ₽), возвратный
+                        </span>
+
+                        <strong id="depositTotal">
+                            20 000 ₽
+                        </strong>
+                    </div>
+
+                    <div class="price-row total-row">
+                        <strong>К оплате</strong>
+
+                        <strong id="grandTotal">
+                            25 000 ₽
+                        </strong>
+                    </div>
+
+                </div>
+
+
+                <button class="order-button" id="orderButton">
+                    Оформить заявку
+                </button>
+
+
+                <p class="rental-note">
+                    Просрочка возврата — 3 750 ₽ за каждый день.
+                    При повреждении штраф удерживается из залога
+                    по акту приёма.
+                </p>
+
+            </div>
+
+
+            <!-- ХАРАКТЕРИСТИКИ -->
+
+            <div class="product-characteristics">
+
+                <h3>Характеристики</h3>
+
+                <div class="characteristic-row">
+                    <span>Размер</span>
+                    <strong id="productSize">44 (ОГ 88, ОТ 68, ОБ 94)</strong>
+                </div>
+
+                <div class="characteristic-row">
+                    <span>Длина изделия</span>
+                    <strong id="productLength">132 см</strong>
+                </div>
+
+                <div class="characteristic-row">
+                    <span>Материал</span>
+                    <strong id="productMaterial">Шёлк 100%, подкладка — вискоза</strong>
+                </div>
+
+                <div class="characteristic-row">
+                    <span>Цвет</span>
+                    <strong id="productColor">Лиловый</strong>
+                </div>
+
+                <div class="characteristic-row">
+                    <span>Состояние</span>
+                    <strong id="productCondition">Отличное · осмотр 02.10.2026</strong>
+                </div>
+
+                <div class="characteristic-row">
+                    <span>Уход</span>
+                    <strong id="productCare">Только химчистка</strong>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ИСТОРИЯ ИСПОЛЬЗОВАНИЯ -->
+
+    <section class="usage-history">
+
+        <h2>История использования</h2>
+
+        <div class="history-table-wrapper">
+
+            <table class="history-table">
+
+                <thead>
+                    <tr>
+                        <th>Период</th>
+                        <th>Проект</th>
+                        <th>Состояние при возврате</th>
+                        <th>Акт</th>
+                    </tr>
+                </thead>
+
+                <tbody id="historyBody">
+
+                    <tr>
+                        <td>15.09 – 17.09.2026</td>
+                        <td>Съёмка лукбука, студия «Свет»</td>
+                        <td>Отличное</td>
+                        <td><a href="#">АВ-0311</a></td>
+                    </tr>
+
+                    <tr>
+                        <td>02.08 – 03.08.2026</td>
+                        <td>Показ выпускников РГУ им. Косыгина</td>
+                        <td>Хорошее, нужна чистка</td>
+                        <td><a href="#">АВ-0287</a></td>
+                    </tr>
+
+                    <tr>
+                        <td>10.07 – 16.07.2026</td>
+                        <td>Клип, режиссёр К. Иванов</td>
+                        <td>Отличное</td>
+                        <td><a href="#">АВ-0254</a></td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- МОДАЛЬНОЕ ОКНО ЗАЯВКИ -->
+
+<div class="order-modal" id="orderModal">
+
+    <div class="modal-content">
+
+        <button class="modal-close" id="modalClose">×</button>
+
+        <h2>Заявка на аренду</h2>
+
+        <p id="modalProductName">Платье «Сумерки»</p>
+
+        <form id="orderForm">
+
+            <label>
+                Ваше имя
+                <input type="text" id="clientName" placeholder="Введите имя" required>
+            </label>
+
+            <label>
+                Телефон
+                <input type="tel" id="clientPhone" placeholder="+7 (___) ___-__-__" required>
+            </label>
+
+            <label>
+                Электронная почта
+                <input type="email" id="clientEmail" placeholder="example@mail.ru" required>
+            </label>
+
+            <div class="modal-summary" id="modalSummary"></div>
+
+            <button type="submit" class="order-button">
+                Отправить заявку
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<script src="product.js"></script>
+
+</body>
+</html>

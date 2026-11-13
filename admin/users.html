@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Пользователи — Гардероб</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="users.css">
+</head>
+<body class="admin-page">
+
+<div class="admin-layout">
+
+    <!-- БОКОВОЕ МЕНЮ (единое) -->
+    <aside class="sidebar">
+        <a href="dashboard.html" class="sidebar-logo">
+            ГАРДЕРОБ
+        </a>
+
+        <nav class="sidebar-nav">
+            <a class="nav-item" href="dashboard.html">
+                <span>▦</span> Панель
+            </a>
+            <a class="nav-item" href="requests.html" data-section="requests">
+                <span>▤</span> Заявки
+            </a>
+            <a class="nav-item" href="costumes.html">
+                <span>♧</span> Костюмы
+            </a>
+            <a class="nav-item" href="returns.html">
+                <span>→</span> Выдача и возврат
+            </a>
+            <!-- <a class="nav-item" href="#" data-section="designers">
+                <span>♙</span> Дизайнеры
+            </a> -->
+            <a class="nav-item" href="reports.html">
+                <span>▥</span> Отчёты
+            </a>
+            <a class="nav-item active" href="users.html">
+                <span>⚙</span> Пользователи
+            </a>
+        </nav>
+
+        <div class="sidebar-user">
+            <strong>Admin</strong>
+            <span>Администратор</span>
+            <button id="logoutButton">Выйти</button>
+        </div>
+    </aside>
+
+
+    <!-- ОСНОВНАЯ ЧАСТЬ -->
+    <main class="admin-main">
+        
+        <!-- ВАШ КОД ПОЛЬЗОВАТЕЛЕЙ -->
+        <section class="users-page" id="usersPage">
+
+            <div class="users-header">
+                <h1>Пользователи и роли</h1>
+                <button class="users-primary-btn" id="addEmployeeBtn">
+                    + Добавить сотрудника
+                </button>
+            </div>
+
+            <!-- Сотрудники -->
+            <section class="users-card">
+                <h2>Сотрудники</h2>
+
+                <div class="users-table-wrap">
+                    <table class="users-table">
+                        <thead>
+                            <tr>
+                                <th>Имя</th>
+                                <th>Логин</th>
+                                <th>Роль</th>
+                                <th>Последний вход</th>
+                                <th>Статус</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="employeesTable"></tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Права ролей -->
+            <section class="users-card permissions-card">
+                <h2>Права ролей</h2>
+
+                <div class="users-table-wrap">
+                    <table class="permissions-table">
+                        <thead>
+                            <tr>
+                                <th>Действие</th>
+                                <th>Администратор</th>
+                                <th>Кладовщик</th>
+                                <th>Костюмер</th>
+                                <th>Клиент</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="permissionsTable">
+                            <tr>
+                                <td>Просмотр каталога и карточек</td>
+                                <td><span class="permission-yes">Да</span></td>
+                                <td><span class="permission-yes">Да</span></td>
+                                <td><span class="permission-yes">Да</span></td>
+                                <td><span class="permission-yes">Да</span></td>
+                            </tr>
+
+                            <tr>
+                                <td>Оформление заявки на аренду</td>
+                                <td><span class="permission-yes">Да</span></td>
+                                <td><span class="permission-yes">Да</span></td>
+                                <td><span class="permission-no">–</span></td>
+                                <td><span class="permission-own">Свои</span></td>
+                            </tr>
+
+                            <tr>
+                                <td>Добавление и редактирование костюмов</td>
+                                <td><span class="permission-yes">Да</span></td>
+                                <td><span class="permission-yes">Да</span></td>
+                                <td><span class="permission-yes">Да</span></td>
+                                <td><span class="permission-no">–</span></td>
+                            </tr>
+
+                            <tr>
+                                <td>Фиксация состояния, фото осмотра</td>
+                                <td><span class="permission-yes">Да</span></td>
+                                <td><span class="permission-yes">Да</span></td>
+                                <td><span class="permission-yes">Да</span></td>
+                                <td><span class="permission-no">–</span></td>
+                            </tr>
+
+                            <tr>
+                                <td>Выдача и приём возврата</td>
+                                <td><span class="permission-yes">Да</span></td>
+                                <td><span class="permission-yes">Да</span></td>
+                                <td><span class="permission-yes">Да</span></td>
+                                <td><span class="permission-no">–</span></td>
+                            </tr>
+
+                            <tr>
+                                <td>Акт порчи и расчёт штрафа</td>
+                                <td><span class="permission-yes">Да</span></td>
+                                <td><span class="permission-yes">Да</span></td>
+                                <td><span class="permission-yes">Да</span></td>
+                                <td><span class="permission-no">–</span></td>
+                            </tr>
+
+                            <tr>
+                                <td>Отчёты</td>
+                                <td><span class="permission-yes">Да</span></td>
+                                <td><span class="permission-yes">Да</span></td>
+                                <td><span class="permission-no">–</span></td>
+                                <td><span class="permission-no">–</span></td>
+                            </tr>
+
+                            <tr>
+                                <td>Удаление и списание костюмов</td>
+                                <td><span class="permission-yes">Да</span></td>
+                                <td><span class="permission-no">–</span></td>
+                                <td><span class="permission-no">–</span></td>
+                                <td><span class="permission-no">–</span></td>
+                            </tr>
+
+                            <tr>
+                                <td>Управление пользователями и тарифами</td>
+                                <td><span class="permission-yes">Да</span></td>
+                                <td><span class="permission-no">–</span></td>
+                                <td><span class="permission-no">–</span></td>
+                                <td><span class="permission-no">–</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <p class="users-note">
+                    Все действия сотрудников записываются в журнал аудита:
+                    кто, когда и что изменил.
+                </p>
+            </section>
+
+            <!-- Модальное окно -->
+            <div class="employee-modal" id="employeeModal" aria-hidden="true">
+                <div class="employee-modal-content">
+
+                    <button class="modal-close" id="closeEmployeeModal"
+                            aria-label="Закрыть">×</button>
+
+                    <h2 id="employeeModalTitle">Добавить сотрудника</h2>
+
+                    <form id="employeeForm">
+
+                        <label>
+                            ФИО
+                            <input type="text" id="employeeName"
+                                   placeholder="Иванов Иван Иванович" required>
+                        </label>
+
+                        <label>
+                            Логин
+                            <input type="text" id="employeeLogin"
+                                   placeholder="Например, ivanov" required>
+                        </label>
+
+                        <label>
+                            Пароль
+                            <input type="password" id="employeePassword"
+                                   placeholder="Введите пароль">
+                        </label>
+
+                        <label>
+                            Роль
+                            <select id="employeeRole" required>
+                                <option value="Администратор">Администратор</option>
+                                <option value="Кладовщик">Кладовщик</option>
+                                <option value="Костюмер">Костюмер</option>
+                                <option value="Клиент">Клиент</option>
+                            </select>
+                        </label>
+
+                        <label>
+                            Статус
+                            <select id="employeeStatus">
+                                <option value="Активен">Активен</option>
+                                <option value="Отпуск">Отпуск</option>
+                                <option value="Заблокирован">Заблокирован</option>
+                            </select>
+                        </label>
+
+                        <div class="modal-actions">
+                            <button type="submit" class="users-primary-btn">
+                                Сохранить
+                            </button>
+
+                            <button type="button" class="users-secondary-btn"
+                                    id="cancelEmployeeModal">
+                                Отмена
+                            </button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+
+        </section>
+        <!-- КОНЕЦ КОДА ПОЛЬЗОВАТЕЛЕЙ -->
+
+    </main>
+
+</div>
+
+<script src="users.js"></script> 
+</body>
+</html>

@@ -1,0 +1,136 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Дизайнер — Гардероб</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="designer.css">
+
+    <script src="designer.js" defer></script>
+</head>
+
+<body class="designer-page">
+
+<header class="site-header">
+    <a href="index.html" class="logo">ГАРДЕРОБ</a>
+
+    <nav class="header-nav">
+        <a href="catalog.html">Каталог</a>
+        <a href="designers.html" class="active">Дизайнеры</a>
+        <a href="index.html#how-it-works">Как это работает</a>
+        <a href="index.html#rental-terms">Условия аренды</a>
+    </nav>
+
+    <<a href="login.html" class="login-btn header-login">Войти</a>
+</header>
+
+
+<main class="designer-container">
+
+    <div class="breadcrumbs">
+        <a href="index.html">Главная</a> /
+        <a href="designers.html">Дизайнеры</a> /
+        <span id="breadcrumbName">Дизайнер</span>
+    </div>
+
+
+    <!-- ПРОФИЛЬ -->
+
+    <section class="designer-profile">
+
+        <div class="designer-avatar" id="designerAvatar">
+            <span>Фото дизайнера</span>
+        </div>
+
+        <div class="designer-profile-info">
+
+            <span class="designer-year" id="designerYear"></span>
+
+            <h1 id="designerName">Дизайнер</h1>
+
+            <p class="designer-description" id="designerDescription"></p>
+
+            <div class="designer-statistics">
+
+                <div>
+                    <strong id="costumeCount">0</strong>
+                    <span>костюмов в каталоге</span>
+                </div>
+
+                <div>
+                    <strong id="collectionCount">0</strong>
+                    <span>коллекции</span>
+                </div>
+
+                <div>
+                    <strong id="rentalCount">0</strong>
+                    <span>аренд за полгода</span>
+                </div>
+
+            </div>
+
+            <div class="designer-social">
+                <a href="#" id="portfolioLink" class="outline-button">
+                    Портфолио
+                </a>
+
+                <a href="#" id="socialLink" class="outline-button">
+                    Соцсети
+                </a>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- КОЛЛЕКЦИИ -->
+
+    <section class="designer-collections">
+
+        <div class="collection-tabs" id="collectionTabs">
+        </div>
+
+        <div class="designer-products" id="designerProducts">
+        </div>
+
+    </section>
+
+
+    <!-- ПРИГЛАШЕНИЕ -->
+
+    <section class="designer-promo">
+
+        <div>
+            <h2>
+                Вы дизайнер? Сдавайте коллекцию в аренду
+            </h2>
+
+            <p>
+                Приносите костюмы в хранилище — мы примем их
+                по акту, сфотографируем, выложим в каталог
+                и выдадим клиентам под залог. Раз в месяц
+                вы получаете 70% от аренды на карту или наличными.
+            </p>
+        </div>
+
+        <a>
+            Записаться на приём костюмов
+        </a>
+
+    </section>
+
+</main>
+
+
+<footer class="designer-footer">
+    <span>Гардероб — платформа аренды авторских костюмов</span>
+    <a href="designers.html">Все дизайнеры</a>
+</footer>
+
+</body>
+</html>

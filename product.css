@@ -1,0 +1,764 @@
+
+/* ===================================
+   СТРАНИЦА ТОВАРА
+=================================== */
+
+.product-page {
+    width: min(1320px, calc(100% - 80px));
+    margin: 0 auto;
+    padding: 25px 0 55px;
+    color: #17161d;
+}
+
+.active-link {
+    color: #4935df !important;
+}
+
+/* ХЛЕБНЫЕ КРОШКИ */
+
+.product-breadcrumbs {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 7px;
+    color: #777381;
+    font-size: 13px;
+    margin-bottom: 22px;
+}
+
+.product-breadcrumbs a:hover {
+    color: #4935df;
+}
+
+/* ОСНОВНАЯ СЕТКА */
+
+.product-main {
+    display: grid;
+    grid-template-columns: 1.25fr 1fr;
+    gap: 42px;
+    align-items: start;
+}
+
+/* ===================================
+   ГАЛЕРЕЯ
+=================================== */
+
+.product-gallery {
+    min-width: 0;
+}
+
+.main-photo {
+    width: 100%;
+    aspect-ratio: 1 / 0.88;
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+
+    background-color: #d5cff3;
+
+    background-image: repeating-linear-gradient(
+        135deg,
+        rgba(255,255,255,0.4) 0px,
+        rgba(255,255,255,0.4) 7px,
+        transparent 7px,
+        transparent 15px
+    );
+
+    transition: background-color 0.3s;
+}
+
+.photo-caption {
+    position: absolute;
+    left: 20px;
+    bottom: 18px;
+    font-size: 13px;
+    color: #514b60;
+}
+
+.photo-thumbnails {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.thumbnail {
+    aspect-ratio: 1.35;
+    border-radius: 13px;
+    border: 2px solid transparent;
+    cursor: pointer;
+    overflow: hidden;
+
+    background-color: #d5cff3;
+
+    background-image: repeating-linear-gradient(
+        135deg,
+        rgba(255,255,255,0.4) 0px,
+        rgba(255,255,255,0.4) 7px,
+        transparent 7px,
+        transparent 15px
+    );
+
+    transition: border-color 0.2s, transform 0.2s;
+}
+
+.thumbnail:hover {
+    transform: translateY(-3px);
+}
+
+.thumbnail:active {
+    transform: scale(0.97);
+}
+
+.thumbnail.active {
+    border-color: #17161d;
+}
+
+.more-photos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #514b60;
+    font-size: 12px;
+}
+
+/* ===================================
+   ИНФОРМАЦИЯ
+=================================== */
+
+.product-information {
+    min-width: 0;
+}
+
+.product-badges {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.product-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 12px;
+    border-radius: 30px;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.type-badge {
+    color: #3725d0;
+    background: #eeebff;
+}
+
+.status-badge {
+    color: #147451;
+    background: #dff3e9;
+}
+
+.status-badge.unavailable {
+    color: #945600;
+    background: #fff0d8;
+}
+
+.inventory-badge {
+    color: #777381;
+    background: #f5f4f8;
+}
+
+.product-information > h1 {
+    font-size: clamp(28px, 3vw, 38px);
+    font-weight: 800;
+    letter-spacing: -1.2px;
+    line-height: 1.2;
+    margin-bottom: 17px;
+}
+
+/* ДИЗАЙНЕР */
+
+.designer-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.designer-avatar {
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background-color: #eddfce;
+    background-image: repeating-linear-gradient(
+        135deg,
+        rgba(255,255,255,0.4) 0px,
+        rgba(255,255,255,0.4) 7px,
+        transparent 7px,
+        transparent 15px
+    );
+}
+
+.designer-info strong {
+    font-size: 14px;
+}
+
+.designer-info p {
+    font-size: 12px;
+    color: #777381;
+    margin-top: 2px;
+}
+
+/* ===================================
+   КАЛЬКУЛЯТОР
+=================================== */
+
+.rental-card {
+    border: 1px solid #e5e2ed;
+    border-radius: 20px;
+    padding: 20px;
+    margin-bottom: 21px;
+}
+
+.rental-card > h3 {
+    font-size: 16px;
+    margin-bottom: 14px;
+}
+
+/* СРОКИ */
+
+.rental-options {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 7px;
+    margin-bottom: 17px;
+}
+
+.rental-option {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 3px;
+    min-width: 0;
+    min-height: 47px;
+    border: 1px solid #dedbe8;
+    border-radius: 12px;
+    background: white;
+    color: #17161d;
+    cursor: pointer;
+    font-family: inherit;
+    transition: 0.2s;
+}
+
+.rental-option strong {
+    font-size: 12px;
+}
+
+.rental-option span {
+    font-size: 10px;
+    color: #777381;
+}
+
+.rental-option:hover {
+    border-color: #4935df;
+    color: #4935df;
+}
+
+.rental-option:active {
+    transform: scale(0.96);
+}
+
+.rental-option.selected {
+    background: #17161d;
+    border-color: #17161d;
+    color: white;
+}
+
+.rental-option.selected span {
+    color: #d0ccd9;
+}
+
+/* ДАТЫ */
+
+.rental-dates {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-bottom: 17px;
+}
+
+.rental-dates label {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    min-width: 0;
+}
+
+.rental-dates label span {
+    font-size: 11px;
+    color: #777381;
+}
+
+.rental-dates input {
+    width: 100%;
+    min-width: 0;
+    height: 39px;
+    border: 1px solid #dedbe8;
+    border-radius: 11px;
+    padding: 0 10px;
+    font-family: inherit;
+    font-size: 12px;
+    outline: none;
+}
+
+.rental-dates input:focus {
+    border-color: #4935df;
+}
+
+/* СТОИМОСТЬ */
+
+.price-details {
+    border-top: 1px solid #f0eef3;
+}
+
+.price-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 0;
+    border-bottom: 1px solid #f0eef3;
+}
+
+.price-row span {
+    font-size: 12px;
+    color: #777381;
+}
+
+.price-row strong {
+    font-size: 13px;
+    white-space: nowrap;
+}
+
+.total-row {
+    border-bottom: none;
+    padding-bottom: 13px;
+}
+
+.total-row strong {
+    font-size: 17px;
+}
+
+/* КНОПКА */
+
+.order-button {
+    width: 100%;
+    min-height: 46px;
+    border: none;
+    border-radius: 30px;
+    background: #4935df;
+    color: white;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+}
+
+.order-button:hover {
+    background: #3824c9;
+    box-shadow: 0 5px 16px rgba(73,53,223,0.2);
+}
+
+.order-button:active {
+    transform: scale(0.98);
+    background: #2919a9;
+}
+
+.rental-note {
+    font-size: 11px;
+    color: #777381;
+    line-height: 1.6;
+    margin-top: 14px;
+}
+
+/* ===================================
+   ХАРАКТЕРИСТИКИ
+=================================== */
+
+.product-characteristics h3 {
+    font-size: 15px;
+    margin-bottom: 7px;
+}
+
+.characteristic-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 15px;
+    padding: 10px 0;
+    border-bottom: 1px solid #efedf2;
+}
+
+.characteristic-row span {
+    color: #777381;
+    font-size: 13px;
+}
+
+.characteristic-row strong {
+    font-size: 12px;
+    text-align: right;
+    font-weight: 600;
+}
+
+/* ===================================
+   ИСТОРИЯ ИСПОЛЬЗОВАНИЯ
+=================================== */
+
+.usage-history {
+    margin-top: 52px;
+}
+
+.usage-history h2 {
+    font-size: 25px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    margin-bottom: 10px;
+}
+
+.history-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    border: 1px solid #e5e2ed;
+    border-radius: 18px;
+}
+
+.history-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 650px;
+    font-size: 13px;
+}
+
+.history-table th,
+.history-table td {
+    padding: 13px 17px;
+    text-align: left;
+    border-bottom: 1px solid #efedf2;
+}
+
+.history-table th {
+    background: #f5f4f8;
+    font-weight: 600;
+}
+
+.history-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.history-table a {
+    color: #4935df;
+    font-weight: 600;
+}
+
+.history-table a:hover {
+    text-decoration: underline;
+}
+
+/* ===================================
+   МОДАЛЬНОЕ ОКНО
+=================================== */
+
+.order-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    background: rgba(23,22,29,0.5);
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.order-modal.open {
+    display: flex;
+}
+
+.modal-content {
+    width: 100%;
+    max-width: 440px;
+    background: white;
+    border-radius: 22px;
+    padding: 28px;
+    position: relative;
+    animation: modalAppear 0.2s ease;
+}
+
+@keyframes modalAppear {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.modal-content h2 {
+    font-size: 23px;
+    margin-bottom: 8px;
+}
+
+.modal-content > p {
+    color: #777381;
+    font-size: 13px;
+    margin-bottom: 20px;
+}
+
+.modal-close {
+    position: absolute;
+    right: 18px;
+    top: 14px;
+    background: none;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+.modal-content form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.modal-content form label {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.modal-content form input {
+    height: 43px;
+    border: 1px solid #dedbe8;
+    border-radius: 11px;
+    padding: 0 12px;
+    font-family: inherit;
+    font-size: 13px;
+    outline: none;
+}
+
+.modal-content form input:focus {
+    border-color: #4935df;
+}
+
+.modal-summary {
+    padding: 13px;
+    background: #f5f4f8;
+    border-radius: 12px;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+/* ===================================
+   АДАПТИВНОСТЬ
+=================================== */
+
+@media (max-width: 1000px) {
+
+    .product-main {
+        grid-template-columns: 1fr 1fr;
+        gap: 25px;
+    }
+
+    .rental-card {
+        padding: 15px;
+    }
+
+    .rental-options {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 700px) {
+
+    .product-page {
+        width: calc(100% - 36px);
+    }
+
+    .product-main {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+
+    .main-photo {
+        aspect-ratio: 1 / 0.85;
+    }
+
+    .product-information > h1 {
+        font-size: 30px;
+    }
+
+    .usage-history {
+        margin-top: 35px;
+    }
+
+    .usage-history h2 {
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 400px) {
+
+    .product-page {
+        width: calc(100% - 28px);
+    }
+
+    .product-information > h1 {
+        font-size: 26px;
+    }
+
+    .rental-card {
+        padding: 13px;
+    }
+
+    .rental-options {
+        gap: 6px;
+    }
+
+    .rental-option strong {
+        font-size: 11px;
+    }
+
+    .characteristic-row {
+        gap: 8px;
+    }
+
+    .characteristic-row span,
+    .characteristic-row strong {
+        font-size: 11px;
+    }
+}
+
+
+
+/* ===================================
+   СТРЕЛКИ ГАЛЕРЕИ
+=================================== */
+
+.gallery-arrow {
+    position: absolute;
+    top: 50%;
+
+    width: 44px;
+    height: 44px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 0;
+
+    border: 1px solid rgba(255,255,255,0.8);
+    border-radius: 50%;
+
+    background: rgba(255,255,255,0.95);
+    color: #17161d;
+
+    cursor: pointer;
+    z-index: 5;
+
+    transform: translateY(-50%);
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        box-shadow 0.2s ease,
+        transform 0.2s ease;
+}
+
+.gallery-prev {
+    left: 16px;
+}
+
+.gallery-next {
+    right: 16px;
+}
+
+/* Геометрические стрелки */
+
+.arrow-icon {
+    width: 11px;
+    height: 11px;
+
+    display: block;
+
+    border-top: 2px solid currentColor;
+    border-right: 2px solid currentColor;
+
+    transition: transform 0.2s ease;
+}
+
+.gallery-prev .arrow-icon {
+    transform: rotate(-135deg);
+    margin-left: 4px;
+}
+
+.gallery-next .arrow-icon {
+    transform: rotate(45deg);
+    margin-right: 4px;
+}
+
+/* Hover */
+
+.gallery-arrow:hover {
+    background: #4935df;
+    color: white;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.12);
+}
+
+/* Нажатие */
+
+.gallery-arrow:active {
+    transform: translateY(-50%) scale(0.9);
+}
+
+/* Счётчик */
+
+.photo-counter {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+
+    padding: 7px 12px;
+
+    border-radius: 20px;
+
+    background: rgba(255,255,255,0.95);
+    color: #17161d;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    z-index: 5;
+}
+
+@media (max-width: 600px) {
+
+    .gallery-arrow {
+        width: 38px;
+        height: 38px;
+    }
+
+    .gallery-prev {
+        left: 10px;
+    }
+
+    .gallery-next {
+        right: 10px;
+    }
+
+}
+

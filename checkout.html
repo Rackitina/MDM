@@ -1,0 +1,388 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Оформление заявки — Гардероб</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="checkout.css">
+
+    <script src="checkout.js" defer></script>
+</head>
+
+<body class="checkout-page">
+
+<header class="site-header">
+    <a href="index.html" class="logo">ГАРДЕРОБ</a>
+
+    <nav class="header-nav">
+        <a href="catalog.html">Каталог</a>
+        <a href="designers.html">Дизайнеры</a>
+        <a href="index.html#how-it-works">Как это работает</a>
+        <a href="index.html#rental-terms">Условия аренды</a>
+    </nav>
+
+    <div class="user-label">
+        Гость · клиент
+    </div>
+</header>
+
+
+<main class="checkout-container">
+
+    <a href="#" class="back-link" id="backLink">
+        ← Вернуться к костюму
+    </a>
+
+    <h1>Оформление заявки на аренду</h1>
+
+    <div class="checkout-steps">
+        <div class="step active">1. Данные и условия</div>
+        <div class="step">2. Подтверждение кладовщиком</div>
+        <div class="step">3. Оплата и выдача</div>
+    </div>
+
+
+    <div class="checkout-layout">
+
+        <!-- ЛЕВАЯ КОЛОНКА -->
+
+        <form id="checkoutForm" class="checkout-form" novalidate>
+
+            <!-- КОНТАКТЫ -->
+
+            <section class="form-section">
+
+                <h2>Контактные данные</h2>
+
+                <div class="form-grid">
+
+                    <div class="form-field">
+                        <label for="clientName">ФИО</label>
+
+                        <input
+                            type="text"
+                            id="clientName"
+                            name="clientName"
+                            placeholder="Иванов Иван Иванович"
+                            autocomplete="name"
+                            minlength="5"
+                            maxlength="100"
+                            pattern="[А-ЯЁа-яёA-Za-z]+([ '-][А-ЯЁа-яёA-Za-z]+){1,2}"
+                            title="Введите имя, фамилию и отчество (отчество можно не указывать)"
+                            required
+                        >
+
+                        <span class="field-error"></span>
+                    </div>
+
+
+                    <div class="form-field">
+                        <label for="clientPhone">Телефон</label>
+
+                        <input
+                            type="tel"
+                            id="clientPhone"
+                            name="clientPhone"
+                            placeholder="+7 (900) 000-00-00"
+                            autocomplete="tel"
+                            maxlength="18"
+                            pattern="\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}"
+                            title="Введите телефон в формате +7 (900) 000-00-00"
+                            required
+                        >
+
+                        <span class="field-error"></span>
+                    </div>
+
+
+                    <div class="form-field">
+                        <label for="clientEmail">Эл. почта</label>
+
+                        <input
+                            type="email"
+                            id="clientEmail"
+                            name="clientEmail"
+                            placeholder="example@mail.ru"
+                            autocomplete="email"
+                            maxlength="120"
+                            required
+                        >
+
+                        <span class="field-error"></span>
+                    </div>
+
+
+                    <div class="form-field">
+                        <label for="organization">
+                            Организация (необязательно)
+                        </label>
+
+                        <input
+                            type="text"
+                            id="organization"
+                            name="organization"
+                            placeholder="Студия, театр, агентство"
+                            maxlength="120"
+                        >
+
+                        <span class="field-error"></span>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- ИНФОРМАЦИЯ О ПРОЕКТЕ -->
+
+            <section class="form-section">
+
+                <h2>Для чего нужен костюм</h2>
+
+                <div class="form-grid">
+
+                    <div class="form-field">
+                        <label for="eventType">Тип мероприятия</label>
+
+                        <select id="eventType" name="eventType" required>
+                            <option value="">Выберите мероприятие</option>
+                            <option>Фотосъёмка</option>
+                            <option>Видеосъёмка</option>
+                            <option>Кинопроизводство</option>
+                            <option>Театральная постановка</option>
+                            <option>Показ мод</option>
+                            <option>Концерт</option>
+                            <option>Частное мероприятие</option>
+                            <option>Другое</option>
+                        </select>
+
+                        <span class="field-error"></span>
+                    </div>
+
+
+                    <div class="form-field">
+                        <label for="projectName">Название проекта</label>
+
+                        <input
+                            type="text"
+                            id="projectName"
+                            name="projectName"
+                            placeholder="Например, Лукбук осень"
+                            maxlength="120"
+                            required
+                        >
+
+                        <span class="field-error"></span>
+                    </div>
+
+
+                    <div class="form-field">
+                        <label for="deliveryMethod">Способ получения</label>
+
+                        <select
+                            id="deliveryMethod"
+                            name="deliveryMethod"
+                            required
+                        >
+                            <option value="Самовывоз из хранилища">
+                                Самовывоз из хранилища
+                            </option>
+
+                            <option value="Курьерская доставка">
+                                Курьерская доставка
+                            </option>
+                        </select>
+                    </div>
+
+
+                    <div class="form-field">
+                        <label for="pickupTime">Удобное время</label>
+
+                        <input
+                            type="datetime-local"
+                            id="pickupTime"
+                            name="pickupTime"
+                            required
+                        >
+
+                        <span class="field-error"></span>
+                    </div>
+
+                </div>
+
+
+                <div class="form-field full-field">
+                    <label for="comment">Комментарий</label>
+
+                    <textarea
+                        id="comment"
+                        name="comment"
+                        placeholder="Например, нужна подгонка по длине"
+                        maxlength="1000"
+                        rows="3"
+                    ></textarea>
+                </div>
+
+            </section>
+
+
+            <!-- УСЛОВИЯ -->
+
+            <section class="form-section">
+
+                <h2>Условия</h2>
+
+                <div class="agreement-list">
+
+                    <label class="agreement-item">
+                        <input
+                            type="checkbox"
+                            id="termsAgreement"
+                            required
+                        >
+
+                        <span>
+                            Принимаю
+                            <a href="index.html#rental-terms" target="_blank">
+                                условия аренды
+                            </a>:
+                            залог возвращается после приёма костюма по акту.
+                        </span>
+                    </label>
+
+
+                    <label class="agreement-item">
+                        <input
+                            type="checkbox"
+                            id="fineAgreement"
+                            required
+                        >
+
+                        <span>
+                            Ознакомлен(а) с прайс-листом штрафов:
+                            загрязнение — 1 500 ₽,
+                            мелкий ремонт — 10%,
+                            серьёзное повреждение — 40%,
+                            утрата — 100% оценочной стоимости,
+                            просрочка — 3 750 ₽/день.
+                        </span>
+                    </label>
+
+
+                    <label class="agreement-item">
+                        <input
+                            type="checkbox"
+                            id="personalAgreement"
+                            required
+                        >
+
+                        <span>
+                            Согласен(на) на обработку персональных данных.
+                        </span>
+                    </label>
+
+                    <p class="agreement-error" id="agreementError"></p>
+
+                </div>
+
+            </section>
+
+
+            <!-- КНОПКИ -->
+
+            <div class="checkout-actions">
+
+                <button type="submit" class="submit-order">
+                    Отправить заявку
+                </button>
+
+                <button
+                    type="button"
+                    class="cancel-order"
+                    id="cancelOrder"
+                >
+                    Отмена
+                </button>
+
+            </div>
+
+            <p class="form-note">
+                После отправки заявки менеджер проверит доступность костюма
+                и свяжется с вами для подтверждения.
+            </p>
+
+        </form>
+
+
+        <!-- ПРАВАЯ КОЛОНКА -->
+
+        <aside class="order-summary">
+
+            <div class="summary-product">
+
+                <div class="summary-image" id="summaryImage"></div>
+
+                <div class="summary-product-info">
+
+                    <h3 id="summaryName">Платье «Сумерки»</h3>
+
+                    <p id="summaryDesigner">Анна Лебедева · р. 44</p>
+
+                    <p id="summaryInventory">ГК-0124</p>
+
+                </div>
+
+            </div>
+
+
+            <div class="summary-details">
+
+                <div class="summary-row">
+                    <span>Получение</span>
+                    <strong id="summaryStart">—</strong>
+                </div>
+
+                <div class="summary-row">
+                    <span>Возврат</span>
+                    <strong id="summaryEnd">—</strong>
+                </div>
+
+                <div class="summary-row">
+                    <span id="summaryRentalLabel">Аренда</span>
+                    <strong id="summaryRental">—</strong>
+                </div>
+
+                <div class="summary-row">
+                    <span>Залог (возвратный)</span>
+                    <strong id="summaryDeposit">—</strong>
+                </div>
+
+            </div>
+
+
+            <div class="summary-total">
+
+                <strong>Итого</strong>
+
+                <strong id="summaryTotal">—</strong>
+
+            </div>
+
+
+            <div class="guarantee-note">
+                Гарантия: если при получении костюм не соответствует
+                карточке, заменим его или вернём оплату полностью.
+            </div>
+
+        </aside>
+
+    </div>
+
+</main>
+
+</body>
+</html>

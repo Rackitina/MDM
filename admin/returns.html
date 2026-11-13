@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Выдача и возврат — Гардероб</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="returns.css">
+</head>
+<body class="admin-page">
+
+<div class="admin-layout">
+
+    <!-- БОКОВОЕ МЕНЮ (единое) -->
+    <aside class="sidebar">
+        <a href="dashboard.html" class="sidebar-logo">
+            ГАРДЕРОБ
+        </a>
+
+        <nav class="sidebar-nav">
+            <a class="nav-item" href="dashboard.html">
+                <span>▦</span> Панель
+            </a>
+            <a class="nav-item" href="requests.html" data-section="requests">
+                <span>▤</span> Заявки
+            </a>
+            <a class="nav-item" href="costumes.html">
+                <span>♧</span> Костюмы
+            </a>
+            <a class="nav-item active" href="returns.html">
+                <span>→</span> Выдача и возврат
+            </a>
+            <!-- <a class="nav-item" href="#" data-section="designers">
+                <span>♙</span> Дизайнеры
+            </a> -->
+            <a class="nav-item" href="reports.html" data-section="reports">
+                <span>▥</span> Отчёты
+            </a>
+            <a class="nav-item" href="users.html" data-section="users">
+                <span>⚙</span> Пользователи
+            </a>
+        </nav>
+
+        <div class="sidebar-user">
+            <strong>Admin</strong>
+            <span>Администратор</span>
+            <button id="logoutButton">Выйти</button>
+        </div>
+    </aside>
+
+
+    <!-- ОСНОВНАЯ ЧАСТЬ -->
+    <main class="admin-main">
+        <a href="dashboard.html" class="back-link">← К панели</a>
+
+        <header class="returns-heading">
+            <h1>Приём возврата · заявка 3-0391</h1>
+            <p>Костюм найден по штрих-коду ГК-0112</p>
+        </header>
+
+        <div class="returns-layout">
+
+            <div class="returns-left">
+
+                <!-- ИНФОРМАЦИЯ О КОСТЮМЕ -->
+                <section class="return-card costume-summary">
+                    <div class="costume-placeholder pink-placeholder" id="costumeImage"></div>
+
+                    <div class="costume-info">
+                        <h2 id="costumeName">Корсетное платье «Барокко» · ГК-0112</h2>
+
+                        <div class="info-row">
+                            <span>Клиент</span>
+                            <strong>Агентство «Мода»</strong>
+                        </div>
+                        <div class="info-row">
+                            <span>Срок аренды</span>
+                            <strong>05.11 – 11.11.2026 (арт-костюм, 4 000 ₽/сут)</strong>
+                        </div>
+                        <div class="info-row">
+                            <span>Состояние при выдаче (акт АВ-0331)</span>
+                            <strong>Отличное</strong>
+                        </div>
+                        <div class="info-row">
+                            <span>Оценочная стоимость / залог</span>
+                            <strong id="valuationInfo">90 000 ₽ / 45 000 ₽</strong>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- СРАВНЕНИЕ ФОТО -->
+                <section class="return-card">
+                    <h2>Сравнение с фото при выдаче</h2>
+
+                    <div class="photo-comparison">
+                        <div>
+                            <div class="comparison-image" id="issuePhoto">
+                                Фото при выдаче
+                            </div>
+                            <span>При выдаче, 05.11.2026</span>
+                        </div>
+
+                        <div>
+                            <label class="comparison-image upload-image" for="returnPhotos" id="returnPhotoPreview">
+                                <span>Загрузить фото при приёме</span>
+                            </label>
+                            <input type="file" id="returnPhotos" accept="image/*" multiple hidden>
+                            <span>При возврате, 13.11.2026</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ОСМОТР -->
+                <section class="return-card inspection-card">
+                    <h2>Осмотр: отметьте найденное</h2>
+
+                    <div class="damage-options">
+                        <label class="damage-option">
+                            <input type="checkbox" class="damage-checkbox" data-type="cleaning" data-value="1500" checked>
+                            <span class="damage-description">
+                                <strong>Загрязнение, нужна химчистка</strong>
+                                <small>Фиксированная сумма</small>
+                            </span>
+                            <strong>1 500 ₽</strong>
+                        </label>
+
+                        <label class="damage-option">
+                            <input type="checkbox" class="damage-checkbox" data-type="minor" data-percent="10" checked>
+                            <span class="damage-description">
+                                <strong>Мелкий ремонт</strong>
+                                <small>Шов, фурнитура, пуговицы — 10% оценки</small>
+                            </span>
+                            <strong id="minorPrice">9 000 ₽</strong>
+                        </label>
+
+                        <label class="damage-option">
+                            <input type="checkbox" class="damage-checkbox" data-type="serious" data-percent="40">
+                            <span class="damage-description">
+                                <strong>Серьёзное повреждение</strong>
+                                <small>Разрыв, невосстановимое пятно — 40% оценки</small>
+                            </span>
+                            <strong id="seriousPrice">36 000 ₽</strong>
+                        </label>
+
+                        <label class="damage-option">
+                            <input type="checkbox" class="damage-checkbox" data-type="lost" data-percent="100">
+                            <span class="damage-description">
+                                <strong>Утрата или невосстановимо</strong>
+                                <small>100% оценочной стоимости</small>
+                            </span>
+                            <strong id="lostPrice">90 000 ₽</strong>
+                        </label>
+                    </div>
+
+                    <!-- ПРОСРОЧКА -->
+                    <div class="delay-control">
+                        <div>
+                            <strong>Просрочка возврата</strong>
+                            <small>1,5 × суточный тариф за каждый день</small>
+                        </div>
+                        <div class="delay-buttons">
+                            <button type="button" id="delayMinus">−</button>
+                            <strong id="delayDays">2 дн.</strong>
+                            <button type="button" id="delayPlus">+</button>
+                        </div>
+                    </div>
+
+                    <!-- КОММЕНТАРИЙ -->
+                    <label class="comment-label" for="returnComment">Комментарий к акту</label>
+                    <textarea id="returnComment" placeholder="Опишите обнаруженные повреждения...">Оторваны две пуговицы на спинке, пятно на подоле.</textarea>
+                </section>
+            </div>
+
+            <!-- РАСЧЁТ -->
+            <aside class="return-card calculation-card">
+                <h2>Расчёт по акту</h2>
+
+                <div class="calculation-row">
+                    <span>Загрязнение, нужна химчистка</span>
+                    <strong id="cleaningTotal">1 500 ₽</strong>
+                </div>
+                <div class="calculation-row">
+                    <span>Мелкий ремонт</span>
+                    <strong id="minorTotal">9 000 ₽</strong>
+                </div>
+                <div class="calculation-row">
+                    <span>Просрочка, 2 дн.</span>
+                    <strong id="delayTotal">12 000 ₽</strong>
+                </div>
+                <div class="calculation-row">
+                    <span>Итого штраф</span>
+                    <strong class="penalty-value" id="penaltyTotal">22 500 ₽</strong>
+                </div>
+                <div class="calculation-row">
+                    <span>Залог</span>
+                    <strong id="depositTotal">45 000 ₽</strong>
+                </div>
+
+                <div class="refund-result">
+                    <span>Вернуть клиенту из залога</span>
+                    <strong id="refundTotal">22 500 ₽</strong>
+                </div>
+
+                <div class="calculation-row new-status">
+                    <span>Новый статус костюма</span>
+                    <strong id="newStatus">В ремонте</strong>
+                </div>
+
+                <button type="button" class="primary-button" id="acceptReturn">
+                    Сформировать акт порчи и принять
+                </button>
+                <button type="button" class="secondary-button" id="printReturnAct">
+                    Распечатать акт (PDF)
+                </button>
+
+                <p class="calculation-note">
+                    Компенсация за повреждение перечисляется дизайнеру. Клиент получает копию акта на почту.
+                </p>
+            </aside>
+
+        </div>
+    </main>
+
+</div>
+
+<div class="return-toast" id="returnToast"></div>
+
+<script src="returns.js"></script>
+</body>
+</html>

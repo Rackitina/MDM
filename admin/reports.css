@@ -1,0 +1,456 @@
+
+/* =====================================
+   REPORTS PAGE
+===================================== */
+
+.reports-page {
+    width: 100%;
+    min-width: 0;
+    color: #17151d;
+    font-family: inherit;
+}
+
+.reports-page * {
+    box-sizing: border-box;
+}
+
+.reports-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    margin-bottom: 22px;
+}
+
+.reports-header h1 {
+    margin: 0;
+    font-size: clamp(28px, 2.5vw, 36px);
+    font-weight: 750;
+    letter-spacing: -1px;
+}
+
+.reports-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.report-select,
+.report-btn {
+    min-height: 43px;
+    padding: 0 18px;
+    border-radius: 30px;
+    font: inherit;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background .2s, color .2s, transform .15s, box-shadow .2s;
+}
+
+.report-select {
+    border: 1px solid #dedbe8;
+    background: #fff;
+    color: #17151d;
+}
+
+.report-btn {
+    border: 1px solid #dedbe8;
+    background: #fff;
+    color: #17151d;
+}
+
+.report-btn.primary {
+    color: #fff;
+    background: #4532dc;
+    border-color: #4532dc;
+}
+
+.report-btn:hover {
+    box-shadow: 0 4px 12px rgba(35, 25, 100, .12);
+    transform: translateY(-2px);
+}
+
+.report-btn:active {
+    transform: scale(.97);
+    box-shadow: none;
+}
+
+.report-btn.primary:hover {
+    background: #3826c4;
+}
+
+/* Вкладки */
+
+.report-tabs {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 23px;
+}
+
+.report-tab {
+    min-height: 42px;
+    padding: 0 19px;
+    border: 1px solid #dedbe8;
+    border-radius: 30px;
+    background: #fff;
+    color: #17151d;
+    font: inherit;
+    font-size: 14px;
+    cursor: pointer;
+    transition: .2s ease;
+}
+
+.report-tab:hover {
+    border-color: #4532dc;
+    color: #4532dc;
+}
+
+.report-tab:active {
+    transform: scale(.97);
+}
+
+.report-tab.active {
+    background: #17151d;
+    color: #fff;
+    border-color: #17151d;
+}
+
+/* Переключение содержимого */
+
+.report-view {
+    display: none;
+    animation: reportFade .25s ease;
+}
+
+.report-view.active {
+    display: block;
+}
+
+@keyframes reportFade {
+    from {
+        opacity: 0;
+        transform: translateY(5px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Финансовые карточки */
+
+.finance-cards {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 15px;
+    margin-bottom: 23px;
+}
+
+.finance-card {
+    min-height: 93px;
+    padding: 20px 19px;
+    background: #fff;
+    border-radius: 21px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 7px;
+}
+
+.finance-card span {
+    color: #858092;
+    font-size: 14px;
+}
+
+.finance-card strong {
+    font-size: clamp(22px, 2vw, 28px);
+    line-height: 1.15;
+    font-weight: 750;
+    letter-spacing: -.6px;
+}
+
+/* Аналитика */
+
+.analytics-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 22px;
+    margin-bottom: 23px;
+}
+
+.report-panel {
+    background: #fff;
+    border-radius: 21px;
+    padding: 24px;
+    min-width: 0;
+}
+
+.report-panel h2 {
+    margin: 0 0 22px;
+    font-size: 19px;
+    font-weight: 650;
+    letter-spacing: -.3px;
+}
+
+/* Диаграмма */
+
+.revenue-panel {
+    min-height: 370px;
+}
+
+.chart-container {
+    height: 275px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    gap: 16px;
+    padding: 15px 5px 0;
+    border-bottom: 1px solid #dedbe8;
+}
+
+.chart-column {
+    height: 100%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 8px;
+    min-width: 0;
+}
+
+.chart-value {
+    font-size: 13px;
+    font-weight: 650;
+}
+
+.chart-bar {
+    width: min(54px, 75%);
+    min-height: 5px;
+    background: #b8adee;
+    border-radius: 9px 9px 0 0;
+    transition: height .3s ease;
+}
+
+.chart-bar.current {
+    background: #4934df;
+}
+
+.chart-month {
+    padding-top: 10px;
+    color: #858092;
+    font-size: 13px;
+}
+
+/* Состояние фонда */
+
+.fund-panel {
+    min-height: 370px;
+}
+
+.fund-panel h2 {
+    margin-bottom: 16px;
+}
+
+.fund-item {
+    margin-bottom: 15px;
+}
+
+.fund-label {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 7px;
+    font-size: 14px;
+}
+
+.fund-label span {
+    color: #4c4857;
+}
+
+.fund-label strong {
+    font-weight: 650;
+}
+
+.fund-progress {
+    height: 10px;
+    width: 100%;
+    background: #eeedf3;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.fund-fill {
+    height: 100%;
+    border-radius: 20px;
+}
+
+.fund-fill.green {
+    background: #13835b;
+}
+
+.fund-fill.purple {
+    background: #4934df;
+}
+
+.fund-fill.orange {
+    background: #c17a00;
+}
+
+.fund-fill.red {
+    background: #c92e20;
+}
+
+/* Таблица */
+
+.payments-panel {
+    margin-bottom: 25px;
+}
+
+.payments-panel h2 {
+    margin-bottom: 18px;
+}
+
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.reports-table {
+    width: 100%;
+    border-collapse: collapse;
+    white-space: nowrap;
+    font-size: 14px;
+}
+
+.reports-table th {
+    color: #777285;
+    text-align: left;
+    font-weight: 450;
+    padding: 12px 13px;
+    border-bottom: 1px solid #eae8ef;
+}
+
+.reports-table td {
+    padding: 14px 13px;
+    border-bottom: 1px solid #eeedf2;
+}
+
+.reports-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.reports-table tbody tr:hover {
+    background: #faf9fd;
+}
+
+.reports-table td strong {
+    font-weight: 700;
+}
+
+/* Статусы */
+
+.status {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 11px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.status.paid {
+    color: #08734f;
+    background: #e2f4ec;
+}
+
+.status.pending {
+    color: #a15b00;
+    background: #fff0d9;
+}
+
+/* Поиск */
+
+.report-search {
+    width: 100%;
+    max-width: 420px;
+    height: 45px;
+    padding: 0 15px;
+    border: 1px solid #dedbe8;
+    border-radius: 12px;
+    font: inherit;
+    margin-bottom: 20px;
+}
+
+.report-search:focus,
+.report-select:focus {
+    outline: 2px solid rgba(73, 52, 223, .2);
+    border-color: #4934df;
+}
+
+/* Адаптивность */
+
+@media (max-width: 1100px) {
+    .finance-cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .analytics-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 700px) {
+    .reports-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .reports-actions {
+        width: 100%;
+    }
+
+    .reports-actions > * {
+        flex: 1 1 auto;
+    }
+
+    .finance-cards {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+
+    .finance-card {
+        padding: 15px;
+        min-height: 85px;
+    }
+
+    .finance-card span {
+        font-size: 12px;
+    }
+
+    .report-panel {
+        padding: 17px;
+        border-radius: 16px;
+    }
+
+    .report-tabs {
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        padding-bottom: 5px;
+    }
+
+    .report-tab {
+        white-space: nowrap;
+    }
+
+    .chart-container {
+        gap: 7px;
+    }
+}
+
+@media (max-width: 420px) {
+    .finance-cards {
+        grid-template-columns: 1fr;
+    }
+}

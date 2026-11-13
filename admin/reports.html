@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Отчёты — Гардероб</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="reports.css">
+</head>
+<body class="admin-page">
+
+<div class="admin-layout">
+
+    <!-- БОКОВОЕ МЕНЮ (единое) -->
+    <aside class="sidebar">
+        <a href="dashboard.html" class="sidebar-logo">
+            ГАРДЕРОБ
+        </a>
+
+        <nav class="sidebar-nav">
+            <a class="nav-item" href="dashboard.html">
+                <span>▦</span> Панель
+            </a>
+            <a class="nav-item" href="requests.html" data-section="requests">
+                <span>▤</span> Заявки
+            </a>
+            <a class="nav-item" href="costumes.html">
+                <span>♧</span> Костюмы
+            </a>
+            <a class="nav-item" href="returns.html">
+                <span>→</span> Выдача и возврат
+            </a>
+            <!-- <a class="nav-item" href="#" data-section="designers">
+                <span>♙</span> Дизайнеры
+            </a> -->
+            <a class="nav-item active" href="reports.html">
+                <span>▥</span> Отчёты
+            </a>
+            <a class="nav-item" href="users.html" data-section="users">
+                <span>⚙</span> Пользователи
+            </a>
+        </nav>
+
+        <div class="sidebar-user">
+            <strong>Admin</strong>
+            <span>Администратор</span>
+            <button id="logoutButton">Выйти</button>
+        </div>
+    </aside>
+
+
+    <!-- ОСНОВНАЯ ЧАСТЬ -->
+    <main class="admin-main">
+        
+        <!-- ВСТАВЛЯЕМ ВАШ КОД ОТЧЕТОВ СЮДА -->
+        <section class="reports-page">
+
+            <!-- Заголовок -->
+            <div class="reports-header">
+                <h1>Отчёты</h1>
+
+                <div class="reports-actions">
+                    <select id="reportMonth" class="report-select">
+                        <option value="2026-10">Октябрь 2026</option>
+                        <option value="2026-09">Сентябрь 2026</option>
+                        <option value="2026-08">Август 2026</option>
+                        <option value="2026-07">Июль 2026</option>
+                        <option value="2026-06">Июнь 2026</option>
+                        <option value="2026-05">Май 2026</option>
+                    </select>
+
+                    <button class="report-btn secondary" id="downloadPDF">
+                        Скачать PDF
+                    </button>
+
+                    <button class="report-btn primary" id="downloadExcel">
+                        Выгрузить в Excel
+                    </button>
+                </div>
+            </div>
+
+            <!-- Переключение отчётов -->
+            <div class="report-tabs">
+                <button class="report-tab active" data-tab="finance">
+                    Финансы
+                </button>
+                <button class="report-tab" data-tab="availability">
+                    Наличие
+                </button>
+                <button class="report-tab" data-tab="issued">
+                    Выданные
+                </button>
+                <button class="report-tab" data-tab="condition">
+                    Состояние
+                </button>
+                <button class="report-tab" data-tab="history">
+                    История по костюму
+                </button>
+            </div>
+
+            <!-- Содержимое отчётов -->
+            <div id="reportContent">
+
+                <!-- Финансы -->
+                <div class="report-view active" id="finance">
+
+                    <div class="finance-cards">
+
+                        <div class="finance-card">
+                            <span>Выручка от аренды</span>
+                            <strong id="totalRevenue">412 500 ₽</strong>
+                        </div>
+
+                        <div class="finance-card">
+                            <span>Выплаты дизайнерам (70%)</span>
+                            <strong id="designerPayments">288 750 ₽</strong>
+                        </div>
+
+                        <div class="finance-card">
+                            <span>Доход платформы (30%)</span>
+                            <strong id="platformIncome">123 750 ₽</strong>
+                        </div>
+
+                        <div class="finance-card">
+                            <span>Удержано штрафов</span>
+                            <strong id="totalFines">18 300 ₽</strong>
+                        </div>
+
+                    </div>
+
+                    <!-- Диаграмма и состояние фонда -->
+                    <div class="analytics-grid">
+
+                        <div class="report-panel revenue-panel">
+                            <h2>Выручка по месяцам, тыс. ₽</h2>
+
+                            <div class="chart-container" id="revenueChart">
+                                <div class="chart-column">
+                                    <span class="chart-value">120</span>
+                                    <div class="chart-bar" style="height: 29%"></div>
+                                    <span class="chart-month">Май</span>
+                                </div>
+
+                                <div class="chart-column">
+                                    <span class="chart-value">185</span>
+                                    <div class="chart-bar" style="height: 45%"></div>
+                                    <span class="chart-month">Июнь</span>
+                                </div>
+
+                                <div class="chart-column">
+                                    <span class="chart-value">240</span>
+                                    <div class="chart-bar" style="height: 58%"></div>
+                                    <span class="chart-month">Июль</span>
+                                </div>
+
+                                <div class="chart-column">
+                                    <span class="chart-value">210</span>
+                                    <div class="chart-bar" style="height: 51%"></div>
+                                    <span class="chart-month">Авг</span>
+                                </div>
+
+                                <div class="chart-column">
+                                    <span class="chart-value">330</span>
+                                    <div class="chart-bar" style="height: 80%"></div>
+                                    <span class="chart-month">Сен</span>
+                                </div>
+
+                                <div class="chart-column">
+                                    <span class="chart-value">412</span>
+                                    <div class="chart-bar current" style="height: 100%"></div>
+                                    <span class="chart-month">Окт</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="report-panel fund-panel">
+                            <h2>Состояние фонда</h2>
+
+                            <div class="fund-item">
+                                <div class="fund-label">
+                                    <span>Свободны</span>
+                                    <strong>214</strong>
+                                </div>
+                                <div class="fund-progress">
+                                    <div class="fund-fill green" style="width: 85%"></div>
+                                </div>
+                            </div>
+
+                            <div class="fund-item">
+                                <div class="fund-label">
+                                    <span>В аренде</span>
+                                    <strong>37</strong>
+                                </div>
+                                <div class="fund-progress">
+                                    <div class="fund-fill purple" style="width: 15%"></div>
+                                </div>
+                            </div>
+
+                            <div class="fund-item">
+                                <div class="fund-label">
+                                    <span>Чистка / ремонт</span>
+                                    <strong>9</strong>
+                                </div>
+                                <div class="fund-progress">
+                                    <div class="fund-fill orange" style="width: 4%"></div>
+                                </div>
+                            </div>
+
+                            <div class="fund-item">
+                                <div class="fund-label">
+                                    <span>Списаны</span>
+                                    <strong>1</strong>
+                                </div>
+                                <div class="fund-progress">
+                                    <div class="fund-fill red" style="width: 1%"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Выплаты дизайнерам -->
+                    <div class="report-panel payments-panel">
+                        <h2 id="paymentsTitle">
+                            Выплаты дизайнерам за октябрь
+                        </h2>
+
+                        <div class="table-wrapper">
+                            <table class="reports-table">
+                                <thead>
+                                    <tr>
+                                        <th>Дизайнер</th>
+                                        <th>Костюмов</th>
+                                        <th>Аренд</th>
+                                        <th>Выручка</th>
+                                        <th>К выплате (70%)</th>
+                                        <th>Компенсации</th>
+                                        <th>Способ выплаты</th>
+                                        <th>Статус</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody id="designerTable">
+                                    <tr>
+                                        <td>Мария Орлова</td>
+                                        <td>9</td>
+                                        <td>14</td>
+                                        <td>132 000 ₽</td>
+                                        <td><strong>92 400 ₽</strong></td>
+                                        <td>—</td>
+                                        <td>На карту</td>
+                                        <td><span class="status paid">Выплачено</span></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Анна Лебедева</td>
+                                        <td>12</td>
+                                        <td>19</td>
+                                        <td>97 500 ₽</td>
+                                        <td><strong>68 250 ₽</strong></td>
+                                        <td>—</td>
+                                        <td>На карту</td>
+                                        <td><span class="status paid">Выплачено</span></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Илья Ким</td>
+                                        <td>8</td>
+                                        <td>11</td>
+                                        <td>82 500 ₽</td>
+                                        <td><strong>57 750 ₽</strong></td>
+                                        <td>2 800 ₽</td>
+                                        <td>Наличными</td>
+                                        <td><span class="status pending">К выплате</span></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Ева Миронова</td>
+                                        <td>5</td>
+                                        <td>7</td>
+                                        <td>64 000 ₽</td>
+                                        <td><strong>44 800 ₽</strong></td>
+                                        <td>—</td>
+                                        <td>На карту</td>
+                                        <td><span class="status pending">К выплате</span></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Дарья Соколова</td>
+                                        <td>10</td>
+                                        <td>18</td>
+                                        <td>36 500 ₽</td>
+                                        <td><strong>25 550 ₽</strong></td>
+                                        <td>1 500 ₽</td>
+                                        <td>Наличными</td>
+                                        <td><span class="status paid">Выплачено</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Остальные вкладки -->
+                <div class="report-view" id="availability">
+                    <div class="report-panel">
+                        <h2>Наличие костюмов</h2>
+                        <p>Распределение костюмов по статусам и категориям.</p>
+                        <div id="availabilityContent"></div>
+                    </div>
+                </div>
+
+                <div class="report-view" id="issued">
+                    <div class="report-panel">
+                        <h2>Выданные костюмы</h2>
+                        <div id="issuedContent"></div>
+                    </div>
+                </div>
+
+                <div class="report-view" id="condition">
+                    <div class="report-panel">
+                        <h2>Состояние костюмов</h2>
+                        <div id="conditionContent"></div>
+                    </div>
+                </div>
+
+                <div class="report-view" id="history">
+                    <div class="report-panel">
+                        <h2>История по костюму</h2>
+
+                        <input
+                            type="text"
+                            id="historySearch"
+                            class="report-search"
+                            placeholder="Введите инвентарный номер, например ГК-0112"
+                        >
+
+                        <div id="historyContent"></div>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+        <!-- КОНЕЦ КОДА ОТЧЕТОВ -->
+
+    </main>
+
+</div>
+
+<script src="reports.js"></script> 
+
+</body>
+</html>

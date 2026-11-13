@@ -1,0 +1,320 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Учёт костюмов — Гардероб</title>
+
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="costumes.css">
+
+</head>
+<body class="admin-page costumes-page">
+
+<div class="admin-layout">
+
+    <!-- БОКОВОЕ МЕНЮ -->
+    <aside class="sidebar">
+
+        <a href="dashboard.html" class="sidebar-logo">
+            ГАРДЕРОБ
+        </a>
+
+        <nav class="sidebar-nav">
+            <a class="nav-item" href="dashboard.html">
+                <span>▦</span> Панель
+            </a>
+            <a class="nav-item" href="requests.html" data-section="requests">
+                <span>▤</span> Заявки
+            </a>
+            <a class="nav-item active" href="costumes.html">
+                <span>♧</span> Костюмы
+            </a>
+            <a class="nav-item" href="returns.html" data-section="issue">
+                <span>→</span> Выдача и возврат
+            </a>
+            <!-- <a class="nav-item" href="#" data-section="designers">
+                <span>♙</span> Дизайнеры
+            </a> -->
+            <a class="nav-item" href="reports.html" data-section="reports">
+                <span>▥</span> Отчёты
+            </a>
+            <a class="nav-item" href="users.html" data-section="users">
+                <span>⚙</span> Пользователи
+            </a>
+        </nav>
+
+        <div class="sidebar-user">
+            <strong>Admin</strong>
+            <span>Администратор</span>
+            <button id="logoutButton">Выйти</button>
+        </div>
+
+    </aside>
+
+
+    <!-- ОСНОВНАЯ ЧАСТЬ -->
+    <main class="admin-main">
+
+        <header class="costumes-header">
+            <h1>Учёт костюмов</h1>
+
+            <div class="costumes-header-actions">
+                <button class="outline-button" id="exportExcel">
+                    Экспорт в Excel
+                </button>
+
+                <button class="primary-button" id="newCostumeButton">
+                    + Новый костюм
+                </button>
+            </div>
+        </header>
+
+
+        <!-- ФИЛЬТРЫ -->
+        <section class="costume-filters">
+
+            <input
+                type="search"
+                id="costumeSearch"
+                placeholder="Сканируйте штрих-код или введите номер"
+            >
+
+            <select id="statusFilter">
+                <option value="">Все статусы</option>
+                <option value="Свободен">Свободен</option>
+                <option value="Забронирован">Забронирован</option>
+                <option value="В аренде">В аренде</option>
+                <option value="Чистка">Чистка</option>
+            </select>
+
+            <select id="categoryFilter">
+                <option value="">Все категории</option>
+                <option value="Повседневный">Повседневный</option>
+                <option value="Вечерний">Вечерний</option>
+                <option value="Сценический">Сценический</option>
+                <option value="Арт-костюм">Арт-костюм</option>
+            </select>
+
+            <select id="designerFilter">
+                <option value="">Все дизайнеры</option>
+                <option value="А. Лебедева">А. Лебедева</option>
+                <option value="И. Ким">И. Ким</option>
+                <option value="М. Орлова">М. Орлова</option>
+                <option value="Д. Соколова">Д. Соколова</option>
+                <option value="Е. Миронова">Е. Миронова</option>
+            </select>
+
+            <select id="locationFilter">
+                <option value="">Все места</option>
+                <option value="Хр.1 · В-4">Хранилище 1</option>
+                <option value="Хр.1 · С-1">Стеллаж С-1</option>
+                <option value="Хр.2 · А-2">Хранилище 2</option>
+                <option value="Зона чистки">Зона чистки</option>
+                <option value="—">Не размещён</option>
+            </select>
+
+        </section>
+
+
+        <!-- ТАБЛИЦА -->
+        <section class="costumes-table-card">
+
+            <div class="table-wrapper">
+                <table class="costumes-table">
+
+                    <thead>
+                        <tr>
+                            <th>Фото</th>
+                            <th>Инв. №</th>
+                            <th>Название</th>
+                            <th>Дизайнер</th>
+                            <th>Р-р</th>
+                            <th>Состояние</th>
+                            <th>Место хранения</th>
+                            <th>Статус</th>
+                            <th>Оценка</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="costumesTableBody"></tbody>
+
+                </table>
+            </div>
+
+            <div class="table-footer">
+                <span id="resultsCount">Показано 0 костюмов</span>
+
+                <div class="pagination">
+                    <button id="prevPage">←</button>
+                    <span id="pageInfo">Стр. 1</span>
+                    <button id="nextPage">→</button>
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- ФОРМА ДОБАВЛЕНИЯ -->
+        <section class="new-costume-card" id="newCostumeSection">
+
+            <div class="form-heading">
+                <h2>Новый костюм</h2>
+                <span id="nextInventoryNumber">
+                    Инв. номер будет присвоен автоматически
+                </span>
+            </div>
+
+            <form id="costumeForm">
+
+                <div class="costume-form-grid">
+
+                    <label>
+                        Название
+                        <input
+                            type="text"
+                            id="costumeName"
+                            placeholder="Например, платье «Сумерки»"
+                            required
+                        >
+                    </label>
+
+                    <label>
+                        Дизайнер
+                        <select id="costumeDesigner" required>
+                            <option value="">Выберите дизайнера</option>
+                            <option>А. Лебедева</option>
+                            <option>И. Ким</option>
+                            <option>М. Орлова</option>
+                            <option>Д. Соколова</option>
+                            <option>Е. Миронова</option>
+                        </select>
+                    </label>
+
+                    <label>
+                        Категория (тариф)
+                        <select id="costumeCategory" required>
+                            <option value="">Выберите категорию</option>
+                            <option value="Вечерний">Вечерний — 2 500 ₽/сут</option>
+                            <option value="Повседневный">Повседневный — 1 500 ₽/сут</option>
+                            <option value="Сценический">Сценический — 3 000 ₽/сут</option>
+                            <option value="Арт-костюм">Арт-костюм — 4 000 ₽/сут</option>
+                        </select>
+                    </label>
+
+                    <label>
+                        Размер
+                        <input
+                            type="text"
+                            id="costumeSize"
+                            placeholder="44"
+                            required
+                        >
+                    </label>
+
+                    <label>
+                        Материал
+                        <input
+                            type="text"
+                            id="costumeMaterial"
+                            placeholder="Шёлк 100%"
+                            required
+                        >
+                    </label>
+
+                    <label>
+                        Цвет
+                        <input
+                            type="text"
+                            id="costumeColor"
+                            placeholder="Лиловый"
+                            required
+                        >
+                    </label>
+
+                    <label>
+                        Оценочная стоимость, ₽
+                        <input
+                            type="number"
+                            id="costumePrice"
+                            placeholder="40000"
+                            min="1"
+                            required
+                        >
+                    </label>
+
+                    <label>
+                        Место хранения
+                        <select id="costumeLocation" required>
+                            <option value="">Выберите место</option>
+                            <option value="Хр.1 · В-4">Хранилище 1 → Стеллаж В → 4</option>
+                            <option value="Хр.1 · С-1">Хранилище 1 → Стеллаж С → 1</option>
+                            <option value="Хр.2 · А-2">Хранилище 2 → Стеллаж А → 2</option>
+                        </select>
+                    </label>
+
+                    <label class="photo-upload">
+                        Фотографии (минимум 3)
+                        <input
+                            type="file"
+                            id="costumePhotos"
+                            accept="image/*"
+                            multiple
+                            required
+                        >
+                        <span id="photoUploadText">
+                            Перетащите фотографии сюда или нажмите для выбора
+                        </span>
+                        <div id="photoPreview"></div>
+                    </label>
+
+                    <label>
+                        Состояние при приёмке
+                        <select id="costumeCondition">
+                            <option>Отличное</option>
+                            <option>Хорошее</option>
+                            <option>Требует ремонта</option>
+                        </select>
+                    </label>
+
+                </div>
+
+                <div class="form-actions">
+
+                    <button type="submit" class="primary-button">
+                        Сохранить и напечатать этикетку со штрих-кодом
+                    </button>
+
+                    <button
+                        type="button"
+                        class="outline-button"
+                        id="acceptanceAct"
+                    >
+                        Акт приёма-передачи (PDF)
+                    </button>
+
+                    <button
+                        type="button"
+                        class="outline-button"
+                        id="cancelCostume"
+                    >
+                        Отмена
+                    </button>
+
+                </div>
+
+            </form>
+        </section>
+
+    </main>
+</div>
+
+<div class="admin-toast" id="adminToast"></div>
+
+<script src="costumes.js"></script>
+
+</body>
+</html>

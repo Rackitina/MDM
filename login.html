@@ -1,0 +1,129 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Вход — Гардероб</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="login.css">
+
+    <script src="login.js" defer></script>
+</head>
+
+<body class="login-page">
+
+    <main class="login-layout">
+
+        <!-- ЛЕВАЯ ПАНЕЛЬ -->
+
+        <section class="login-promo">
+
+            <a href="index.html" class="login-logo">
+                ГАРДЕРОБ
+            </a>
+
+            <div class="login-promo-content">
+                <h1>
+                    Авторские костюмы —
+                    <br>
+                    в надёжных руках
+                </h1>
+
+                <p>
+                    Клиенты оформляют аренду, сотрудники ведут учёт,
+                    выдачу и возврат в одной системе.
+                </p>
+            </div>
+
+            <div class="login-promo-footer">
+                Бригада №3, ИТБД-124
+            </div>
+
+        </section>
+
+
+        <!-- ПРАВАЯ ПАНЕЛЬ -->
+
+        <section class="login-form-section">
+
+            <form class="login-form" id="loginForm">
+
+                <h2>Вход</h2>
+
+                <div class="login-field">
+                    <label for="loginEmail">
+                        Эл. почта или логин
+                    </label>
+
+                    <input
+                        type="text"
+                        id="loginEmail"
+                        name="login"
+                        placeholder="Введите почту или логин"
+                        autocomplete="username"
+                        required
+                    >
+                    <span class="field-error" id="loginError"></span>
+                </div>
+
+
+                <div class="login-field">
+                    <label for="loginPassword">
+                        Пароль
+                    </label>
+
+                    <input
+                        type="password"
+                        id="loginPassword"
+                        name="password"
+                        placeholder="Введите пароль"
+                        autocomplete="current-password"
+                        required
+                    >
+                    <span class="field-error" id="passwordError"></span>
+                </div>
+
+
+                <div class="login-options">
+
+                    <label class="remember-label">
+                        <input
+                            type="checkbox"
+                            id="rememberMe"
+                            checked
+                        >
+                        <span>Запомнить меня</span>
+                    </label>
+
+                    <a href="forgot-password.html">
+                        Забыли пароль?
+                    </a>
+
+                </div>
+
+
+                <button type="submit" class="login-submit">
+                    Войти
+                </button>
+
+
+                <div class="login-register">
+                    Нет аккаунта?
+                    <a href="register.html">
+                        Зарегистрироваться
+                    </a>
+                </div>
+
+                <div class="login-message" id="loginMessage"></div>
+
+            </form>
+
+        </section>
+
+    </main>
+
+</body>
+</html>

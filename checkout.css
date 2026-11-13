@@ -1,0 +1,507 @@
+
+/* ==================================
+   СТРАНИЦА ОФОРМЛЕНИЯ
+================================== */
+
+.checkout-page {
+    background: #f5f4f8;
+    color: #17161d;
+    min-height: 100vh;
+}
+
+.checkout-container {
+    width: min(1060px, calc(100% - 48px));
+    margin: 0 auto;
+    padding: 30px 0 60px;
+}
+
+.back-link {
+    display: inline-block;
+    margin-bottom: 22px;
+    color: #777487;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+.back-link:hover {
+    color: #4935df;
+}
+
+.checkout-container h1 {
+    font-size: clamp(28px, 3vw, 36px);
+    line-height: 1.15;
+    letter-spacing: -1.2px;
+    margin-bottom: 22px;
+    font-weight: 800;
+}
+
+/* ЭТАПЫ */
+
+.checkout-steps {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.step {
+    padding: 11px 15px;
+    border-radius: 30px;
+    background: white;
+    color: #777487;
+    font-size: 13px;
+}
+
+.step.active {
+    background: #17161d;
+    color: white;
+}
+
+/* ОСНОВНАЯ СЕТКА */
+
+.checkout-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 272px;
+    align-items: start;
+    gap: 18px;
+}
+
+.checkout-form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    min-width: 0;
+}
+
+/* СЕКЦИИ */
+
+.form-section,
+.order-summary {
+    background: #fff;
+    border-radius: 20px;
+    padding: 25px;
+}
+
+.form-section h2 {
+    font-size: 18px;
+    font-weight: 700;
+    margin: 0 0 20px;
+}
+
+/* СЕТКА ПОЛЕЙ */
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+}
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    gap: 7px;
+}
+
+.form-field label {
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.form-field input,
+.form-field select,
+.form-field textarea {
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+
+    padding: 12px 13px;
+
+    border: 1px solid #dcd9e7;
+    border-radius: 12px;
+
+    background: #fff;
+    color: #17161d;
+
+    font-family: inherit;
+    font-size: 14px;
+
+    outline: none;
+
+    transition:
+        border-color .2s,
+        box-shadow .2s;
+}
+
+.form-field input,
+.form-field select {
+    height: 44px;
+}
+
+.form-field textarea {
+    resize: vertical;
+    min-height: 85px;
+}
+
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus {
+    border-color: #4935df;
+    box-shadow: 0 0 0 3px rgba(73,53,223,.09);
+}
+
+.form-field input::placeholder,
+.form-field textarea::placeholder {
+    color: #9995a5;
+}
+
+/* ОШИБКИ */
+
+.form-field input.invalid,
+.form-field select.invalid,
+.form-field textarea.invalid {
+    border-color: #df4444;
+    background: #fffafa;
+}
+
+.form-field input.valid {
+    border-color: #38a77b;
+}
+
+.field-error {
+    color: #d83e3e;
+    font-size: 11px;
+    min-height: 0;
+}
+
+.full-field {
+    margin-top: 15px;
+}
+
+/* СОГЛАСИЯ */
+
+.agreement-list {
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+}
+
+.agreement-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 13px;
+    line-height: 1.55;
+    cursor: pointer;
+}
+
+.agreement-item input {
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+    margin: 1px 0 0;
+    accent-color: #4935df;
+    cursor: pointer;
+}
+
+.agreement-item a {
+    color: #4935df;
+    text-decoration: underline;
+}
+
+.agreement-error {
+    color: #d83e3e;
+    font-size: 12px;
+    margin: 0;
+}
+
+/* КНОПКИ */
+
+.checkout-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.submit-order,
+.cancel-order {
+    min-height: 50px;
+    padding: 0 27px;
+
+    border-radius: 30px;
+
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background .2s,
+        color .2s,
+        transform .15s,
+        box-shadow .2s;
+}
+
+.submit-order {
+    background: #4935df;
+    color: white;
+    border: 1px solid #4935df;
+}
+
+.submit-order:hover {
+    background: #3925c5;
+    box-shadow: 0 5px 15px rgba(73,53,223,.2);
+}
+
+.cancel-order {
+    background: transparent;
+    color: #17161d;
+    border: 1px solid #17161d;
+}
+
+.cancel-order:hover {
+    background: #17161d;
+    color: white;
+}
+
+.submit-order:active,
+.cancel-order:active {
+    transform: scale(.97);
+}
+
+.submit-order:disabled {
+    opacity: .6;
+    cursor: not-allowed;
+}
+
+.form-note {
+    font-size: 12px;
+    line-height: 1.5;
+    color: #777487;
+    margin: -7px 0 0;
+}
+
+/* ПРАВАЯ КОЛОНКА */
+
+.order-summary {
+    position: sticky;
+    top: 20px;
+}
+
+.summary-product {
+    display: flex;
+    gap: 12px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eeedf2;
+}
+
+.summary-image {
+    width: 76px;
+    height: 106px;
+    flex-shrink: 0;
+
+    border-radius: 13px;
+
+    background-color: #d5cff3;
+
+    background-image: repeating-linear-gradient(
+        135deg,
+        rgba(255,255,255,.4) 0px,
+        rgba(255,255,255,.4) 7px,
+        transparent 7px,
+        transparent 15px
+    );
+}
+
+.summary-product-info h3 {
+    font-size: 14px;
+    margin: 3px 0 5px;
+    line-height: 1.4;
+}
+
+.summary-product-info p {
+    font-size: 12px;
+    color: #777487;
+    margin: 3px 0;
+    line-height: 1.5;
+}
+
+/* РАСЧЁТ */
+
+.summary-details {
+    padding: 12px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 17px;
+}
+
+.summary-row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+    font-size: 13px;
+}
+
+.summary-row span {
+    color: #777487;
+}
+
+.summary-row strong {
+    text-align: right;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.summary-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding-top: 15px;
+    border-top: 1px solid #eeedf2;
+
+    font-size: 18px;
+}
+
+.summary-total strong:last-child {
+    white-space: nowrap;
+}
+
+/* ГАРАНТИЯ */
+
+.guarantee-note {
+    margin-top: 15px;
+    padding: 14px;
+
+    border-radius: 14px;
+
+    background: #efecff;
+    color: #45369b;
+
+    font-size: 12px;
+    line-height: 1.55;
+}
+
+/* АДАПТИВНОСТЬ */
+
+@media (max-width: 850px) {
+
+    .checkout-layout {
+        grid-template-columns: minmax(0, 1fr) 250px;
+    }
+
+    .form-section {
+        padding: 20px;
+    }
+
+}
+
+@media (max-width: 650px) {
+
+    .checkout-container {
+        width: calc(100% - 32px);
+        padding-top: 22px;
+    }
+
+    .checkout-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .order-summary {
+        position: static;
+        grid-row: 1;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .checkout-container h1 {
+        font-size: 27px;
+    }
+
+    .step {
+        font-size: 11px;
+        padding: 9px 11px;
+    }
+
+    .form-section,
+    .order-summary {
+        padding: 20px;
+        border-radius: 17px;
+    }
+
+    .checkout-actions {
+        flex-direction: column;
+    }
+
+    .checkout-actions button {
+        width: 100%;
+    }
+
+}
+
+@media (max-width: 420px) {
+
+    .header-nav {
+        display: none;
+    }
+
+    .checkout-container h1 {
+        font-size: 24px;
+    }
+
+}
+
+
+/* ==================================
+   ШАПКА СТРАНИЦЫ ОФОРМЛЕНИЯ
+   (под разметку checkout.html)
+================================== */
+
+.site-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+
+    /* Та же ширина, что у .checkout-container */
+    width: min(1060px, calc(100% - 48px));
+    margin: 0 auto;
+    padding: 0;
+    height: 76px;
+
+    border-bottom: 1px solid #e8e6ed;
+}
+
+.site-header .logo {
+    font-size: 22px;
+    font-weight: 800;
+    white-space: nowrap;
+    color: #17161d;
+}
+
+.header-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(18px, 2.2vw, 35px);
+}
+
+.header-nav a {
+    font-size: 14px;
+    white-space: nowrap;
+    color: #17161d;
+}
+
+.header-nav a:hover {
+    color: #4935df;
+}
+
+.user-label {
+    font-size: 13px;
+    color: #777381;
+    white-space: nowrap;
+}

@@ -1,0 +1,424 @@
+
+/* СТРАНИЦА УЧЁТА КОСТЮМОВ */
+
+.costumes-page .admin-main {
+    padding-top: 28px;
+}
+
+.costumes-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 22px;
+}
+
+.costumes-header h1 {
+    margin: 0;
+    font-size: 30px;
+    font-weight: 800;
+    letter-spacing: -.7px;
+}
+
+.costumes-header-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.outline-button {
+    min-height: 42px;
+    padding: 0 18px;
+    border: 1px solid #ddd9e9;
+    border-radius: 28px;
+    background: white;
+    color: #17151d;
+    font: inherit;
+    font-size: 13px;
+    cursor: pointer;
+    transition: .2s;
+    white-space: nowrap;
+}
+
+.outline-button:hover {
+    border-color: #4935df;
+    color: #4935df;
+    transform: translateY(-2px);
+}
+
+.outline-button:active {
+    transform: scale(.97);
+}
+
+/* ФИЛЬТРЫ */
+
+.costume-filters {
+    display: grid;
+    grid-template-columns: minmax(190px, 1.6fr) repeat(4, minmax(110px, 1fr));
+    gap: 9px;
+    margin-bottom: 20px;
+}
+
+.costume-filters input,
+.costume-filters select {
+    height: 39px;
+    min-width: 0;
+    padding: 0 13px;
+    border: 1px solid #ddd9e9;
+    border-radius: 24px;
+    background: #fff;
+    color: #17151d;
+    font: inherit;
+    font-size: 13px;
+    outline: none;
+}
+
+.costume-filters input:focus,
+.costume-filters select:focus {
+    border-color: #4935df;
+}
+
+/* ТАБЛИЦА */
+
+.costumes-table-card {
+    background: white;
+    border-radius: 20px;
+    padding: 14px 7px 10px;
+    margin-bottom: 20px;
+    min-width: 0;
+}
+
+.costumes-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 12px;
+}
+
+.costumes-table th {
+    padding: 10px 9px;
+    color: #777386;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.costumes-table td {
+    height: 69px;
+    padding: 8px 9px;
+    border-top: 1px solid #eeecf2;
+    white-space: nowrap;
+}
+
+.costumes-table tbody tr {
+    transition: background .18s;
+}
+
+.costumes-table tbody tr:hover {
+    background: #faf9ff;
+}
+
+.costume-photo {
+    width: 38px;
+    height: 48px;
+    border-radius: 7px;
+    background: repeating-linear-gradient(
+        135deg,
+        var(--photo-light, #e6e0f5) 0px,
+        var(--photo-light, #e6e0f5) 7px,
+        var(--photo-dark, #d2c9e9) 7px,
+        var(--photo-dark, #d2c9e9) 14px
+    );
+    object-fit: cover;
+    display: block;
+}
+
+.costume-title {
+    font-weight: 600;
+}
+
+.costume-subtitle {
+    display: block;
+    color: #898597;
+    margin-top: 3px;
+    font-size: 11px;
+}
+
+.inventory-number {
+    font-weight: 700;
+}
+
+.costume-status {
+    display: inline-block;
+    padding: 6px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.costume-status.free {
+    color: #08765b;
+    background: #e1f3ec;
+}
+
+.costume-status.booked {
+    color: #4935df;
+    background: #efecff;
+}
+
+.costume-status.rented {
+    color: #4935df;
+    background: #efecff;
+}
+
+.costume-status.cleaning {
+    color: #985600;
+    background: #fff0d8;
+}
+
+.edit-costume {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 1px solid #ddd9e9;
+    background: white;
+    cursor: pointer;
+    font-size: 17px;
+    transition: .2s;
+}
+
+.edit-costume:hover {
+    background: #efecff;
+    border-color: #4935df;
+}
+
+.edit-costume:active {
+    transform: scale(.93);
+}
+
+.table-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 11px 3px;
+    color: #858194;
+    font-size: 12px;
+}
+
+.pagination {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.pagination button {
+    border: 1px solid #ddd9e9;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    background: white;
+    cursor: pointer;
+}
+
+.pagination button:hover {
+    color: #4935df;
+    border-color: #4935df;
+}
+
+/* ФОРМА НОВОГО КОСТЮМА */
+
+.new-costume-card {
+    background: white;
+    border-radius: 20px;
+    padding: 22px 20px;
+    scroll-margin-top: 20px;
+}
+
+.form-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 16px;
+}
+
+.form-heading h2 {
+    font-size: 17px;
+    margin: 0;
+}
+
+.form-heading span {
+    color: #858194;
+    font-size: 12px;
+}
+
+.costume-form-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 13px;
+}
+
+.costume-form-grid label {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    font-size: 12px;
+    font-weight: 600;
+    min-width: 0;
+}
+
+.costume-form-grid input,
+.costume-form-grid select {
+    width: 100%;
+    min-width: 0;
+    height: 39px;
+    padding: 0 11px;
+    border: 1px solid #ddd9e9;
+    border-radius: 10px;
+    background: white;
+    color: #17151d;
+    font: inherit;
+    font-size: 13px;
+    outline: none;
+}
+
+.costume-form-grid input:focus,
+.costume-form-grid select:focus {
+    border-color: #4935df;
+}
+
+.photo-upload {
+    grid-column: span 2;
+}
+
+.photo-upload input[type="file"] {
+    display: none;
+}
+
+.photo-upload > span {
+    min-height: 105px;
+    border: 2px dashed #d4cde7;
+    border-radius: 13px;
+    background: repeating-linear-gradient(
+        135deg,
+        #faf9fc,
+        #faf9fc 7px,
+        #f0eef4 7px,
+        #f0eef4 14px
+    );
+    color: #858194;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 12px;
+    cursor: pointer;
+    font-weight: 400;
+}
+
+.photo-upload > span:hover {
+    border-color: #4935df;
+}
+
+#photoPreview {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+}
+
+#photoPreview img {
+    width: 55px;
+    height: 65px;
+    object-fit: cover;
+    border-radius: 7px;
+}
+
+.form-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+    margin-top: 15px;
+}
+
+.form-actions .primary-button {
+    font-size: 12px;
+}
+
+/* АДАПТИВНОСТЬ */
+
+@media (max-width: 1200px) {
+    .costume-filters {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .costumes-table-card {
+        overflow-x: auto;
+    }
+
+    .costumes-table {
+        min-width: 900px;
+    }
+
+    .costume-form-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 700px) {
+    .costumes-header,
+    .form-heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .costumes-header-actions {
+        width: 100%;
+        flex-wrap: wrap;
+    }
+
+    .costume-filters {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .costume-filters input {
+        grid-column: span 2;
+    }
+
+    .costume-form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .photo-upload {
+        grid-column: span 1;
+    }
+
+    .form-actions {
+        flex-direction: column;
+    }
+
+    .form-actions button {
+        width: 100%;
+    }
+}
+
+/* Стили для ссылок в боковом меню на странице костюмов */
+.costumes-page .nav-item {
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 10px 14px;
+    gap: 13px;
+    border-radius: 12px;
+    text-decoration: none; /* Убирает подчеркивание у ссылки */
+    color: #d2cfda;
+    font-size: 15px;
+    transition: background .2s, color .2s, transform .15s;
+}
+
+.costumes-page .nav-item:hover {
+    background: #292633;
+    color: #fff;
+}
+
+.costumes-page .nav-item.active {
+    background: #4935df;
+    color: #fff;
+}

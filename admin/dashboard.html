@@ -1,0 +1,314 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Панель управления — Гардероб</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+
+<body class="admin-page">
+
+<div class="admin-layout">
+
+    <!-- Боковая панель -->
+
+    <aside class="sidebar">
+
+        <a href="../index.html" class="sidebar-logo">
+            ГАРДЕРОБ
+        </a>
+
+        <nav class="sidebar-nav">
+            <a class="nav-item active" href="dashboard.html">
+                <span>▦</span> Панель
+            </a>
+            <a class="nav-item" href="requests.html" data-section="requests">
+                <span>▤</span> Заявки
+            </a>
+            <a class="nav-item" href="costumes.html">
+                <span>♧</span> Костюмы
+            </a>
+            <a class="nav-item" href="returns.html" data-section="issue">
+                <span>→</span> Выдача и возврат
+            </a>
+            <!-- <a class="nav-item" href="#" data-section="designers">
+                <span>♙</span> Дизайнеры
+            </a> -->
+            <a class="nav-item" href="reports.html" data-section="reports">
+                <span>▥</span> Отчёты
+            </a>
+            <a class="nav-item" href="users.html" data-section="users">
+                <span>⚙</span> Пользователи
+            </a>
+        </nav>
+
+        <div class="sidebar-user">
+            <strong>Admin</strong>
+            <span>Администратор</span>
+            <button id="logoutButton">Выйти</button>
+        </div>
+
+    </aside>
+
+
+    <!-- Основная область -->
+
+    <main class="admin-main">
+
+        <header class="dashboard-header">
+
+            <div>
+                <h1>Добрый день, Admin</h1>
+                <p id="currentDate"></p>
+            </div>
+
+            <div class="header-actions">
+
+                <input
+                    type="search"
+                    id="barcodeSearch"
+                    placeholder="Сканируйте штрих-код или введите номер"
+                >
+
+                <button class="primary-button" id="acceptCostume">
+                    + Принять костюм
+                </button>
+
+            </div>
+
+        </header>
+
+
+        <!-- Статистика -->
+
+        <section class="stats-grid">
+
+            <article class="stat-card">
+                <span>В хранилище</span>
+                <strong>214</strong>
+            </article>
+
+            <article class="stat-card">
+                <span>В аренде</span>
+                <strong>37</strong>
+            </article>
+
+            <article class="stat-card">
+                <span>Новые заявки</span>
+                <strong class="purple">6</strong>
+            </article>
+
+            <article class="stat-card">
+                <span>Возврат сегодня</span>
+                <strong>5</strong>
+            </article>
+
+            <article class="stat-card">
+                <span>Просрочено</span>
+                <strong class="red">2</strong>
+            </article>
+
+            <article class="stat-card">
+                <span>Чистка / ремонт</span>
+                <strong class="orange">9</strong>
+            </article>
+
+        </section>
+
+
+        <!-- Заявки и возвраты -->
+
+        <section class="dashboard-columns">
+
+            <div class="dashboard-card requests-card">
+
+                <div class="card-heading">
+                    <h2>Новые заявки</h2>
+                    <a href="#" data-section-link="requests">Все заявки</a>
+                </div>
+
+                <div class="table-wrapper">
+
+                    <table>
+
+                        <thead>
+                            <tr>
+                                <th>№</th>
+                                <th>Клиент</th>
+                                <th>Костюм</th>
+                                <th>Даты</th>
+                                <th>Действие</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+                                <td>3-0418</td>
+                                <td>Е. Смирнова</td>
+                                <td>
+                                    Платье «Сумерки»
+                                    <small>ГК-0124</small>
+                                </td>
+                                <td>12.11 – 14.11</td>
+                                <td>
+                                    <button class="action-button light">
+                                        Подтвердить
+                                    </button>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>3-0417</td>
+                                <td>Театр «Сфера»</td>
+                                <td>
+                                    Костюм-тройка «Модерн»
+                                    <small>ГК-0098</small>
+                                </td>
+                                <td>13.11 – 20.11</td>
+                                <td>
+                                    <button class="action-button">
+                                        Выдать
+                                    </button>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>3-0416</td>
+                                <td>Студия «Кадр»</td>
+                                <td>
+                                    Комбинезон «Металл»
+                                    <small>ГК-0151</small>
+                                </td>
+                                <td>13.11 – 15.11</td>
+                                <td>
+                                    <button class="action-button">
+                                        Выдать
+                                    </button>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>3-0415</td>
+                                <td>А. Белова</td>
+                                <td>
+                                    Жакет «Конструктив»
+                                    <small>ГК-0077</small>
+                                </td>
+                                <td>16.11 – 17.11</td>
+                                <td>
+                                    <button class="action-button light">
+                                        Подтвердить
+                                    </button>
+                                </td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+
+            <!-- Ближайшие возвраты -->
+
+            <div class="dashboard-card returns-card">
+
+                <h2>Ближайшие возвраты</h2>
+
+                <div class="return-item">
+                    <div>
+                        <strong>Корсетное платье «Барокко»</strong>
+                        <small>Агентство «Мода+»</small>
+                    </div>
+                    <span class="status overdue">Просрочен 2 дня</span>
+                </div>
+
+                <div class="return-item">
+                    <div>
+                        <strong>Платье-кимоно «Сад»</strong>
+                        <small>К. Иванов</small>
+                    </div>
+                    <span class="status today">Сегодня</span>
+                </div>
+
+                <div class="return-item">
+                    <div>
+                        <strong>Пальто «Нуар»</strong>
+                        <small>Студия «Свет»</small>
+                    </div>
+                    <span class="status today">Сегодня</span>
+                </div>
+
+                <div class="return-item">
+                    <div>
+                        <strong>Платье «Графика»</strong>
+                        <small>М. Ли</small>
+                    </div>
+                    <span class="status neutral">15.11</span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Последние операции -->
+
+        <section class="dashboard-card operations-card">
+
+            <h2>Последние операции</h2>
+
+            <div class="operation-row">
+                <span>13.11, 11:42</span>
+                <p>Выдан костюм ГК-0098 по заявке 3-0417, акт выдачи АВ-0352</p>
+                <small>О. Петрова</small>
+            </div>
+
+            <div class="operation-row">
+                <span>13.11, 10:15</span>
+                <p>Принят возврат ГК-0140, состояние «хорошее», отправлен на чистку</p>
+                <small>Н. Кузнецова</small>
+            </div>
+
+            <div class="operation-row">
+                <span>12.11, 18:03</span>
+                <p>Добавлен костюм ГК-0214 «Жилет „Вечер“», дизайнер А. Лебедева</p>
+                <small>О. Петрова</small>
+            </div>
+
+            <div class="operation-row">
+                <span>12.11, 16:30</span>
+                <p>Акт порчи АП-0019: оторвана фурнитура, штраф 2 800 ₽ удержан из залога</p>
+                <small>Н. Кузнецова</small>
+            </div>
+
+            <div class="operation-row">
+                <span>12.11, 12:08</span>
+                <p>Костюм ГК-0077 перемещён: Стеллаж А-3 → Стеллаж С-1</p>
+                <small>О. Петрова</small>
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<div class="admin-toast" id="adminToast"></div>
+
+<script src="dashboard.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Заявки — Гардероб</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="requests.css">
+</head>
+<body class="admin-page">
+
+<div class="admin-layout">
+
+    <!-- БОКОВОЕ МЕНЮ (единое) -->
+    <aside class="sidebar">
+        <a href="dashboard.html" class="sidebar-logo">
+            ГАРДЕРОБ
+        </a>
+
+        <nav class="sidebar-nav">
+            <a class="nav-item" href="dashboard.html">
+                <span>▦</span> Панель
+            </a>
+            <a class="nav-item active" href="requests.html">
+                <span>▤</span> Заявки
+            </a>
+            <a class="nav-item" href="costumes.html">
+                <span>♧</span> Костюмы
+            </a>
+            <a class="nav-item" href="returns.html">
+                <span>→</span> Выдача и возврат
+            </a>
+            <!-- <a class="nav-item" href="#" data-section="designers">
+                <span>♙</span> Дизайнеры
+            </a> -->
+            <a class="nav-item" href="reports.html">
+                <span>▥</span> Отчёты
+            </a>
+            <a class="nav-item" href="users.html">
+                <span>⚙</span> Пользователи
+            </a>
+        </nav>
+
+        <div class="sidebar-user">
+            <strong>Admin</strong>
+            <span>Администратор</span>
+            <button id="logoutButton">Выйти</button>
+        </div>
+    </aside>
+
+
+    <!-- ОСНОВНАЯ ЧАСТЬ -->
+    <main class="admin-main">
+        
+        <!-- ВАШ КОД ЗАЯВОК -->
+        <div class="requests-page">
+            <div class="requests-header">
+                <div>
+                    <h1>Заявки</h1>
+                    <p>Управление бронированием, подтверждением и выдачей костюмов</p>
+                </div>
+                <div class="requests-count">
+                    Всего заявок: <strong id="totalRequests">4</strong>
+                </div>
+            </div>
+
+            <section class="requests-filters">
+                <input
+                    type="search"
+                    id="requestSearch"
+                    placeholder="Поиск по номеру, клиенту или костюму"
+                >
+
+                <select id="requestStatus">
+                    <option value="">Все статусы</option>
+                    <option value="Новая">Новая</option>
+                    <option value="Подтверждена">Подтверждена</option>
+                    <option value="Выдана">Выдана</option>
+                </select>
+
+                <select id="requestPeriod">
+                    <option value="">Все периоды</option>
+                    <option value="11">Ноябрь 2026</option>
+                </select>
+            </section>
+
+            <section class="requests-card">
+                <div class="requests-card-header">
+                    <h2>Список заявок</h2>
+                    <span>Последние заявки клиентов</span>
+                </div>
+
+                <div class="requests-table-wrapper">
+                    <table class="requests-table">
+                        <thead>
+                            <tr>
+                                <th>№</th>
+                                <th>Клиент</th>
+                                <th>Костюм</th>
+                                <th>Даты</th>
+                                <th>Статус</th>
+                                <th>Действие</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="requestsTable">
+                            <tr data-status="Новая">
+                                <td><strong>3-0418</strong></td>
+                                <td>Е. Смирнова</td>
+                                <td>
+                                    <strong>Платье «Сумерки»</strong>
+                                    <small>ГК-0124</small>
+                                </td>
+                                <td>12.11 – 14.11</td>
+                                <td>
+                                    <span class="request-status new">
+                                        Новая
+                                    </span>
+                                </td>
+                                <td>
+                                    <button class="request-action confirm">
+                                        Подтвердить
+                                    </button>
+                                </td>
+                            </tr>
+
+                            <tr data-status="Подтверждена">
+                                <td><strong>3-0417</strong></td>
+                                <td>Театр «Сфера»</td>
+                                <td>
+                                    <strong>Костюм-тройка «Модерн»</strong>
+                                    <small>ГК-0098</small>
+                                </td>
+                                <td>13.11 – 20.11</td>
+                                <td>
+                                    <span class="request-status confirmed">
+                                        Подтверждена
+                                    </span>
+                                </td>
+                                <td>
+                                    <button class="request-action issue">
+                                        Выдать
+                                    </button>
+                                </td>
+                            </tr>
+
+                            <tr data-status="Подтверждена">
+                                <td><strong>3-0416</strong></td>
+                                <td>Студия «Кадр»</td>
+                                <td>
+                                    <strong>Комбинезон «Металл»</strong>
+                                    <small>ГК-0151</small>
+                                </td>
+                                <td>13.11 – 15.11</td>
+                                <td>
+                                    <span class="request-status confirmed">
+                                        Подтверждена
+                                    </span>
+                                </td>
+                                <td>
+                                    <button class="request-action issue">
+                                        Выдать
+                                    </button>
+                                </td>
+                            </tr>
+
+                            <tr data-status="Новая">
+                                <td><strong>3-0415</strong></td>
+                                <td>А. Белова</td>
+                                <td>
+                                    <strong>Жакет «Конструктив»</strong>
+                                    <small>ГК-0077</small>
+                                </td>
+                                <td>16.11 – 17.11</td>
+                                <td>
+                                    <span class="request-status new">
+                                        Новая
+                                    </span>
+                                </td>
+                                <td>
+                                    <button class="request-action confirm">
+                                        Подтвердить
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="requests-footer">
+                    <span id="requestsShown">Показано 4 из 4 заявок</span>
+                </div>
+            </section>
+        </div>
+        <!-- КОНЕЦ КОДА ЗАЯВОК -->
+
+    </main>
+
+</div>
+
+<script src="requests.js"></script> 
+
+</body>
+</html>

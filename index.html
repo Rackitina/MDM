@@ -1,0 +1,278 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Гардероб — аренда дизайнерских костюмов</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<script src="script.js"></script>
+<body>
+
+<!-- ШАПКА -->
+<header class="header">
+    <div class="header-inner">
+        <a href="#" class="logo">ГАРДЕРОБ</a>
+
+        <nav class="navigation">
+            <a href="catalog.html">Каталог</a>
+            <a href="designers.html">Дизайнеры</a>
+            <a href="#how">Как это работает</a>
+            <a href="#terms">Условия аренды</a>
+        </nav>
+
+        <div class="header-right">
+            <input type="text" placeholder="Платье, пальто, дизайнер...">
+            <a href="login.html" class="login-btn header-login">Войти</a>
+        </div>
+    </div>
+</header>
+
+
+<main>
+
+<!-- ГЛАВНЫЙ ЭКРАН -->
+<section class="hero" id="designers">
+    <div class="hero-inner">
+
+        <div class="hero-content">
+            <span class="tag">Только авторские вещи молодых дизайнеров</span>
+
+            <h1>
+                Аренда дизайнерских костюмов для съёмок, показов и&nbsp;сцены
+            </h1>
+
+            <p class="hero-description">
+                Дизайнеры передают свои коллекции на&nbsp;хранение и&nbsp;продвижение.
+                Мы проверяем каждую вещь, сдаём её&nbsp;в&nbsp;аренду стилистам
+                и&nbsp;режиссёрам и&nbsp;отвечаем за&nbsp;её&nbsp;сохранность.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="catalog.html" class="primary-btn">
+                    Смотреть каталог
+                </a>
+                <a href="login.html" class="secondary-btn">
+                    Стать партнёром-дизайнером
+                </a>
+            </div>
+
+            <div class="statistics">
+                <div>
+                    <strong>[N]</strong>
+                    <span>костюмов в каталоге</span>
+                </div>
+
+                <div>
+                    <strong>[N]</strong>
+                    <span>дизайнеров-партнёров</span>
+                </div>
+
+                <div>
+                    <strong>от 1500 ₽</strong>
+                    <span>за сутки аренды</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-gallery">
+            <div class="gallery-large placeholder purple">
+                <span>Фото: платье «Сумерки» А. Лебедева</span>
+            </div>
+
+            <div class="gallery-small">
+                <div class="placeholder beige">
+                    <span>Фото: пальто «Нуар»</span>
+                </div>
+
+                <div class="placeholder green">
+                    <span>Фото: кимоно «Сад»</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- КАК ЭТО РАБОТАЕТ -->
+<section class="how-section" id="how">
+
+    <div class="section-container">
+        <h2>Как это работает</h2>
+
+        <div class="steps">
+
+            <article class="step-card">
+                <div class="step-number">1</div>
+                <h3>Дизайнер приносит вещь</h3>
+                <p>
+                    Костюм принимают по&nbsp;акту, осматривают,
+                    фотографируют, оценивают и&nbsp;клеят этикетку
+                    со&nbsp;штрих-кодом.
+                </p>
+            </article>
+
+            <article class="step-card">
+                <div class="step-number">2</div>
+                <h3>Клиент выбирает</h3>
+                <p>
+                    Поиск по типу, размеру, материалу,
+                    цвету и&nbsp;дизайнеру. Стоимость считается сразу.
+                </p>
+            </article>
+
+            <article class="step-card">
+                <div class="step-number">3</div>
+                <h3>Выдача под залог</h3>
+                <p>
+                    Состояние фиксируется в&nbsp;акте выдачи с&nbsp;фото.
+                    Клиент вносит аренду и&nbsp;залог.
+                </p>
+            </article>
+
+            <article class="step-card">
+                <div class="step-number">4</div>
+                <h3>Возврат и выплата</h3>
+                <p>
+                    При приёме костюм сверяют с&nbsp;актом.
+                    Дизайнер раз в месяц получает 70% 
+                    от&nbsp;аренды — на&nbsp;карту или&nbsp;наличными.
+                </p>
+            </article>
+
+        </div>
+    </div>
+
+</section>
+
+<!-- НОВОЕ В КАТАЛОГЕ -->
+<section class="catalog-section" id="catalog">
+
+    <div class="section-container">
+
+        <div class="section-heading">
+            <h2>Новое в каталоге</h2>
+            <a href="catalog.html">Весь каталог →</a>
+        </div>
+
+        <div class="products">
+
+
+            <article class="product-card" data-product-id="sumерки">
+                <div class="product-image image-purple"></div>
+                <h3>Платье «Сумерки»</h3>
+                <p>Анна Лебедева · р. 44</p>
+                <strong>2 500 ₽ / сутки</strong>
+            </article>
+
+            <article class="product-card" data-product-id="barokko">
+                <div class="product-image image-pink"></div>
+                <h3>Корсетное платье «Барокко»</h3>
+                <p>Мария Орлова · р. 42</p>
+                <strong>4 000 ₽ / сутки</strong>
+            </article>
+
+            <article class="product-card" data-product-id="nuar">
+                <div class="product-image image-lilac"></div>
+                <h3>Платье «Нуар»</h3>
+                <p>Илья Ким · р. 46</p>
+                <strong>2 500 ₽ / сутки</strong>
+            </article>
+
+            <article class="product-card" data-product-id="grafika">
+                <div class="product-image image-gray"></div>
+                <h3>Платье-футляр «Графика»</h3>
+                <p>Дарья Соколова · р. 46</p>
+                <strong>2 500 ₽ / сутки</strong>
+            </article>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- УСЛОВИЯ АРЕНДЫ -->
+<section class="terms-section" id="terms">
+
+    <div class="section-container">
+
+        <h2>Условия аренды</h2>
+
+        <div class="terms-grid">
+
+            <article class="terms-card">
+                <h3>Тарифы</h3>
+                <div class="term-row">
+                    <span>Повседневный</span>
+                    <span>1 500 ₽/сут</span>
+                </div>
+                <div class="term-row">
+                    <span>Вечерний</span>
+                    <span>2 500 ₽/сут</span>
+                </div>
+                <div class="term-row">
+                    <span>Сценический</span>
+                    <span>3 000 ₽/сут</span>
+                </div>
+                <div class="term-row">
+                    <span>Подиумный арт-костюм</span>
+                    <span>4 000 ₽/сут</span>
+                </div>
+                <p>Неделя — по цене 5 суток</p>
+            </article>
+
+            <article class="terms-card">
+                <h3>Залог</h3>
+                <p>
+                    50% оценочной стоимости костюма.
+                    Возвращается в&nbsp;течение 3 дней после
+                    приёма, если костюм вернули вовремя
+                    и&nbsp;без&nbsp;повреждений.
+                </p>
+            </article>
+
+            <article class="terms-card">
+                <h3>Штрафы</h3>
+                <p>
+                    Загрязнение — 1500 ₽. Мелкий ремонт —
+                    10%, серьёзное повреждение — 40%,
+                    утрата — 100% оценочной стоимости.
+                    Просрочка — 1,5 суточного тарифа за&nbsp;день.
+                </p>
+            </article>
+
+            <article class="terms-card">
+                <h3>Гарантия</h3>
+                <p>
+                    Костюм выдаётся чистым и&nbsp;в&nbsp;состоянии,
+                    указанном в карточке. Если это не&nbsp;так —
+                    бесплатная замена или полный возврат оплаты.
+                    Дизайнер гарантирует компенсацию ущерба.
+                </p>
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+<!-- ПОДВАЛ -->
+<footer class="footer">
+    <p>
+        Гардероб — платформа аренды авторских костюмов.
+        Курсовой проект, бригада №3, ИТБД-124
+    </p>
+
+    <a href="mailto:info@garderob.ru">[Контакты заказчика]</a>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,220 @@
+
+.requests-page {
+    padding: 28px 32px;
+    color: #17161e;
+    min-width: 0;
+}
+
+.requests-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 26px;
+}
+
+.requests-header h1 {
+    font-size: 32px;
+    font-weight: 750;
+    margin: 0 0 8px;
+}
+
+.requests-header p {
+    color: #858294;
+    font-size: 14px;
+    margin: 0;
+}
+
+.requests-count {
+    background: white;
+    padding: 13px 20px;
+    border-radius: 30px;
+    color: #777486;
+    font-size: 14px;
+}
+
+.requests-count strong {
+    color: #17161e;
+}
+
+.requests-filters {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 22px;
+    flex-wrap: wrap;
+}
+
+.requests-filters input,
+.requests-filters select {
+    height: 42px;
+    border: 1px solid #dedbe9;
+    border-radius: 24px;
+    background: white;
+    padding: 0 16px;
+    font: inherit;
+    color: #17161e;
+    outline: none;
+}
+
+.requests-filters input {
+    width: 320px;
+    max-width: 100%;
+}
+
+.requests-filters select:focus,
+.requests-filters input:focus {
+    border-color: #4934df;
+}
+
+.requests-card {
+    background: white;
+    border-radius: 20px;
+    padding: 22px 18px 16px;
+}
+
+.requests-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 4px 18px;
+}
+
+.requests-card-header h2 {
+    font-size: 20px;
+    margin: 0;
+}
+
+.requests-card-header span {
+    color: #858294;
+    font-size: 13px;
+}
+
+.requests-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.requests-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    min-width: 750px;
+}
+
+.requests-table th {
+    color: #858294;
+    font-weight: 400;
+    font-size: 14px;
+    padding: 14px 10px;
+    border-bottom: 1px solid #eceaf2;
+}
+
+.requests-table td {
+    padding: 13px 10px;
+    font-size: 14px;
+    border-bottom: 1px solid #eceaf2;
+    vertical-align: middle;
+}
+
+.requests-table td strong {
+    font-weight: 600;
+}
+
+.requests-table td small {
+    display: block;
+    color: #858294;
+    margin-top: 3px;
+    font-size: 13px;
+}
+
+.request-status {
+    display: inline-block;
+    padding: 7px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.request-status.new {
+    color: #4532d7;
+    background: #eeeaff;
+}
+
+.request-status.confirmed {
+    color: #087a57;
+    background: #e3f4ed;
+}
+
+.request-status.issued {
+    color: #805000;
+    background: #fff0d9;
+}
+
+.request-action {
+    border: none;
+    border-radius: 30px;
+    padding: 12px 19px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: .2s ease;
+    white-space: nowrap;
+}
+
+.request-action.confirm {
+    background: #efecff;
+    color: #4934df;
+}
+
+.request-action.issue {
+    background: #4934df;
+    color: white;
+}
+
+.request-action:hover {
+    transform: translateY(-2px);
+    filter: brightness(.96);
+}
+
+.request-action:disabled {
+    cursor: default;
+    opacity: .65;
+    transform: none;
+}
+
+.requests-footer {
+    color: #858294;
+    font-size: 13px;
+    padding: 15px 4px 0;
+}
+
+@media (max-width: 700px) {
+    .requests-page {
+        padding: 20px 14px;
+    }
+
+    .requests-header {
+        align-items: flex-start;
+        gap: 12px;
+        flex-direction: column;
+    }
+
+    .requests-header h1 {
+        font-size: 26px;
+    }
+
+    .requests-filters {
+        flex-direction: column;
+    }
+
+    .requests-filters input,
+    .requests-filters select {
+        width: 100%;
+    }
+
+    .requests-card-header {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 8px;
+    }
+}

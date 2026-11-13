@@ -1,0 +1,591 @@
+
+/* ===================================
+   ГАРДЕРОБ — ADMIN DASHBOARD
+=================================== */
+
+.admin-page {
+    margin: 0;
+    min-height: 100vh;
+    background: #f5f4f8;
+    color: #17151d;
+    font-family: 'Manrope', sans-serif;
+}
+
+.admin-page * {
+    box-sizing: border-box;
+}
+
+.admin-layout {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* БОКОВОЕ МЕНЮ */
+
+.sidebar {
+    width: 236px;
+    min-width: 236px;
+    background: #15131b;
+    color: #fff;
+    padding: 24px 16px;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    inset: 0 auto 0 0;
+    z-index: 10;
+}
+
+.sidebar-logo {
+    color: #fff;
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: 800;
+    letter-spacing: -0.7px;
+    margin: 0 14px 28px;
+}
+
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.nav-item {
+    border: none;
+    width: 100%;
+    min-height: 44px;
+    padding: 10px 14px;
+    display: flex; /* Выстраивает иконку и текст в ряд */
+    align-items: center;
+    gap: 13px;
+    border-radius: 12px;
+    background: transparent;
+    color: #d2cfda;
+    font: inherit;
+    font-size: 15px;
+    text-align: left;
+    text-decoration: none; /* Убирает стандартное подчеркивание ссылок */
+    cursor: pointer;
+    transition: background .2s, color .2s, transform .15s;
+}
+
+.nav-item span {
+    font-size: 20px;
+    width: 17px;
+    text-align: center;
+}
+
+.nav-item:hover {
+    background: #292633;
+    color: #fff;
+}
+
+.nav-item:active {
+    transform: scale(.98);
+}
+
+.nav-item.active {
+    background: #4935df;
+    color: #fff;
+}
+
+.sidebar-user {
+    margin-top: auto;
+    background: #282530;
+    border-radius: 14px;
+    padding: 15px 13px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.sidebar-user strong {
+    font-size: 14px;
+}
+
+.sidebar-user span {
+    color: #aaa5ba;
+    font-size: 13px;
+}
+
+.sidebar-user button {
+    margin-top: 10px;
+    background: transparent;
+    border: 0;
+    color: #c5bfff;
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
+}
+
+/* ОСНОВНАЯ ОБЛАСТЬ */
+
+.admin-main {
+    width: calc(100% - 236px);
+    max-width: 1600px;
+    margin-left: 236px;
+    padding: 30px 36px 50px;
+    min-width: 0;
+}
+
+/* ШАПКА */
+
+.dashboard-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+    margin-bottom: 24px;
+}
+
+.dashboard-header h1 {
+    margin: 0 0 4px;
+    font-size: clamp(30px, 2.5vw, 38px);
+    line-height: 1.2;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+.dashboard-header p {
+    margin: 0;
+    color: #777386;
+    font-size: 14px;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.header-actions input {
+    width: min(310px, 25vw);
+    height: 44px;
+    padding: 0 17px;
+    border: 1px solid #ddd9e9;
+    border-radius: 30px;
+    background: #fff;
+    font: inherit;
+    font-size: 14px;
+    outline: none;
+}
+
+.header-actions input:focus {
+    border-color: #4935df;
+}
+
+.primary-button {
+    height: 44px;
+    padding: 0 20px;
+    border: none;
+    border-radius: 30px;
+    background: #4935df;
+    color: #fff;
+    font: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.primary-button:hover {
+    background: #3724c5;
+    transform: translateY(-2px);
+}
+
+.primary-button:active {
+    transform: scale(.97);
+}
+
+/* СТАТИСТИКА */
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 15px;
+    margin-bottom: 24px;
+}
+
+.stat-card {
+    min-height: 102px;
+    padding: 20px 18px;
+    background: #fff;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    transition: transform .2s, box-shadow .2s;
+}
+
+.stat-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px #17151d0c;
+}
+
+.stat-card span {
+    color: #777386;
+    font-size: 14px;
+}
+
+.stat-card strong {
+    font-size: 34px;
+    line-height: 1.1;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+.purple { color: #4935df; }
+.red { color: #c32d1c; }
+.orange { color: #915000; }
+
+/* КАРТОЧКИ */
+
+.dashboard-columns {
+    display: grid;
+    grid-template-columns: minmax(0, 1.8fr) minmax(300px, .9fr);
+    gap: 22px;
+    margin-bottom: 24px;
+    align-items: stretch;
+}
+
+.dashboard-card {
+    background: #fff;
+    border-radius: 21px;
+    padding: 24px;
+    min-width: 0;
+}
+
+.dashboard-card h2 {
+    font-size: 19px;
+    font-weight: 700;
+    margin: 0 0 24px;
+}
+
+.card-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.card-heading h2 {
+    margin-bottom: 20px;
+}
+
+.card-heading a {
+    color: #4935df;
+    font-size: 14px;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.card-heading a:hover {
+    text-decoration: underline;
+}
+
+/* ТАБЛИЦА ЗАЯВОК */
+
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.requests-card table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 14px;
+}
+
+.requests-card th {
+    color: #777386;
+    font-weight: 500;
+    padding: 12px 10px;
+    white-space: nowrap;
+}
+
+.requests-card td {
+    padding: 13px 10px;
+    border-top: 1px solid #eeecf2;
+    line-height: 1.45;
+}
+
+.requests-card td:first-child {
+    font-weight: 700;
+}
+
+.requests-card td small {
+    display: block;
+    color: #898597;
+    font-size: 13px;
+}
+
+.action-button {
+    padding: 11px 16px;
+    background: #4935df;
+    border: none;
+    border-radius: 25px;
+    color: #fff;
+    font: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: .2s;
+}
+
+.action-button.light {
+    background: #efecff;
+    color: #4935df;
+}
+
+.action-button:hover {
+    filter: brightness(.92);
+    transform: translateY(-2px);
+}
+
+.action-button:active {
+    transform: scale(.96);
+}
+
+/* ВОЗВРАТЫ */
+
+.returns-card h2 {
+    margin-bottom: 12px;
+}
+
+.return-item {
+    min-height: 79px;
+    padding: 14px 0;
+    border-bottom: 1px solid #eeecf2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.return-item:last-child {
+    border-bottom: none;
+}
+
+.return-item > div {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    min-width: 0;
+}
+
+.return-item strong {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+.return-item small {
+    font-size: 13px;
+    color: #898597;
+}
+
+.status {
+    border-radius: 20px;
+    padding: 7px 10px;
+    font-size: 12px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.status.overdue {
+    background: #fde8e6;
+    color: #b42318;
+}
+
+.status.today {
+    background: #fff0d8;
+    color: #925500;
+}
+
+.status.neutral {
+    background: #f3f2f6;
+    color: #514d5d;
+}
+
+/* ИСТОРИЯ ОПЕРАЦИЙ */
+
+.operations-card h2 {
+    margin-bottom: 12px;
+}
+
+.operation-row {
+    min-height: 51px;
+    display: grid;
+    grid-template-columns: 115px minmax(0, 1fr) 110px;
+    align-items: center;
+    gap: 12px;
+    border-bottom: 1px solid #eeecf2;
+    font-size: 13px;
+}
+
+.operation-row:last-child {
+    border-bottom: none;
+}
+
+.operation-row > span,
+.operation-row > small {
+    color: #858194;
+}
+
+.operation-row > small {
+    text-align: right;
+}
+
+.operation-row p {
+    margin: 0;
+}
+
+/* УВЕДОМЛЕНИЯ */
+
+.admin-toast {
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+    z-index: 100;
+    padding: 15px 22px;
+    background: #17151d;
+    color: white;
+    border-radius: 12px;
+    opacity: 0;
+    transform: translateY(15px);
+    pointer-events: none;
+    transition: .25s;
+    font-size: 14px;
+}
+
+.admin-toast.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* АДАПТИВНОСТЬ */
+
+@media (max-width: 1200px) {
+    .stats-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .dashboard-columns {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 850px) {
+    .sidebar {
+        width: 190px;
+        min-width: 190px;
+    }
+
+    .admin-main {
+        width: calc(100% - 190px);
+        margin-left: 190px;
+        padding: 25px 20px;
+    }
+
+    .dashboard-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .header-actions {
+        width: 100%;
+    }
+
+    .header-actions input {
+        width: 100%;
+    }
+}
+
+@media (max-width: 600px) {
+    .sidebar {
+        position: static;
+        width: 100%;
+        min-width: 0;
+        min-height: auto;
+    }
+
+    .admin-layout {
+        flex-direction: column;
+    }
+
+    .sidebar-nav {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .sidebar-user {
+        margin-top: 15px;
+    }
+
+    .admin-main {
+        width: 100%;
+        margin-left: 0;
+        padding: 22px 15px;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+    }
+
+    .stat-card {
+        padding: 15px;
+    }
+
+    .stat-card strong {
+        font-size: 29px;
+    }
+
+    .header-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .header-actions input,
+    .primary-button {
+        width: 100%;
+    }
+
+    .dashboard-card {
+        padding: 17px;
+    }
+
+    .operation-row {
+        grid-template-columns: 1fr;
+        gap: 5px;
+        padding: 12px 0;
+    }
+
+    .operation-row > small {
+        text-align: left;
+    }
+
+    .return-item {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}
+
+.stat-card strong.purple {
+    background: transparent !important;
+    color: #4935df;
+}
+
+/* Принудительно задаем шрифт Manrope для всех элементов админки */
+.admin-page, 
+.admin-page button, 
+.admin-page input, 
+.admin-page select, 
+.admin-page textarea, 
+.admin-page table {
+    font-family: 'Manrope', sans-serif;
+}
